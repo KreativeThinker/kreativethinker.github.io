@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Anumeya Sehgal">
+	<main>
+    <div class="bg-navy flex flex-col space-y-5 py-5 items-center px-10 md:px-64">
+      <img src="./Anumeya.jpg" class="rounded-full bg-navy border-crimson border-3 w-64"></img>
+      <div class="flex flex-row justify-center">
+        <h1 class="text-3xl text-white font-bold px-1">Hi! I am</h1><h1 class="text-red text-3xl font-bold px-1">Anumeya</h1>
+      </div>
+      <p class="text-white">I am an aspiring software developer from Delhi who loves coding, building and learning more about different technologies, math and just about anything else. Over the past 4 years, I have had the oppertunity to work with many different languages, though my primary competence is in python, and built many personal projects to improve my productivity and boost my knowledge.<br>
+      </p>
+    </div>
+    <div class="bg-black flex flex-col py-5 px-10 md:px-64 space-y-5 items-center">
+      <h1 class="text-3xl text-white font-bold">Projects</h1>
+      <Card title='VERT AI' href='https://github.com/mradigen/vert.ai'>
+        A green finance stock market for Encryptcon, a 24 hour hackathon at IIT Madras. It is backed by a powerful AI algorithm for predicting the stock value and the stock rating. For this project, I was primarily tasked with doing the API integration between the AI and the frontend.
+      </Card>
+      <Card title='Triple A Battery' href='https://github.com/orgs/Triple-A-Battery/repositories'>
+        My work with my team, the Triple A Battery.
+      </Card>
+      <Card title='PWNCORE' href='https://github.com/KreativeThinker/pwncore'>
+        The backend for a CTF platform used by the Linux Users Group of VIT Chennai during Password 2024.
+      </Card>
+      <Card title='My Configs' href='https://github.com/KreativeThinker/dotfiles'>
+        These are the dotfiles of my current arch setup (Yes I use Arch BTW) with BSPWM, polybar, neovim, etc.
+      </Card>
+    </div>
+    <div class="bg-navy flex flex-col py-5 px-10 md:px-64 space-y-5 items-center">
+      <h1 class="text-3xl text-white font-bold">Blog</h1>
+      <p class="text-white">Work in progress</p>
+    </div>
+    
+	</main>
+</Layout>

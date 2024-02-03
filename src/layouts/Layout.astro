@@ -1,0 +1,33 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">	<title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	</head>
+	<body class="">
+		<slot />
+    <div class="bg-black flex flex-col py-5 space-y-5 items-center">
+      <h1 class="text-3xl text-white font-bold">Contact Me</h1>
+      <div class="grid grid-flow-col w-full text-white justify-evenly text-center py-5">
+        <a href="https://github.com/KreativeThinker" class="inline space-x-2 justify-center text-md"><i class="fa-brands fa-github"></i><p class="md:inline hidden">KreativeThinker</p></a>
+        <a href="https://linedin.com/in/anumeya-sehgal" class="inline space-x-2 justify-center"><i class="fa-brands fa-linkedin"></i><p class="md:inline hidden">Anumeya Sehgal</p></a>
+        <a href="https://twitter.com/AnumeyaSehgal" class="inline space-x-2 justify-center"><i class="fa-brands fa-x-twitter"></i><p class="md:inline hidden">AnumeyaSehgal</p></a>
+      </div>
+    </div>
+	</body>
+</html>
