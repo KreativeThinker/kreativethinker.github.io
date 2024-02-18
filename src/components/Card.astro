@@ -8,9 +8,9 @@ interface Props {
 const { href, title } = Astro.props;
 ---
 
-<li class="flex flex-col p-5 bg-navy rounded-md text-white space-y-5 w-full">
+<li class="flex flex-col p-5 bg-navy rounded-md text-white w-full h-full">
 	<a href={href} class="flex flex-row gap-1">
-		<h2 class="underline underline-offset-2">
+		<h2 class="font-bold">
 			{title}
 		</h2>
     <span>&rarr;</span>

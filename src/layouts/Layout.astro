@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -19,15 +20,8 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	</head>
-	<body class="">
+	<body class="bg-black min-h-screen flex flex-col"> 
 		<slot />
-    <div class="bg-black flex flex-col py-5 space-y-5 items-center">
-      <h1 class="text-3xl text-white font-bold">Contact Me</h1>
-      <div class="grid grid-flow-col w-full text-white justify-evenly text-center py-5">
-        <a href="https://github.com/KreativeThinker" class="inline space-x-2 justify-center text-md"><i class="fa-brands fa-github"></i><p class="md:inline hidden">KreativeThinker</p></a>
-        <a href="https://linedin.com/in/anumeya-sehgal" class="inline space-x-2 justify-center"><i class="fa-brands fa-linkedin"></i><p class="md:inline hidden">Anumeya Sehgal</p></a>
-        <a href="https://twitter.com/AnumeyaSehgal" class="inline space-x-2 justify-center"><i class="fa-brands fa-x-twitter"></i><p class="md:inline hidden">AnumeyaSehgal</p></a>
-      </div>
-    </div>
+    <Footer />
 	</body>
 </html>

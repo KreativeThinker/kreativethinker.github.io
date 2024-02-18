@@ -6,7 +6,6 @@ export default {
       sans: ['"Montserrat"'],
     },
     colors: {
-      midnight: "#121212",
       black: "#202232",
       navy: "#2B2D42",
       white: "#EDF2F4",
