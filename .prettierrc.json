@@ -1,5 +1,0 @@
-{
-    "tabWidth": 4,
-    "parser": "astro",
-    "plugins": ["prettier-plugin-tailwindcss"]
-}
