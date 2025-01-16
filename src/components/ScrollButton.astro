@@ -1,0 +1,40 @@
+---
+interface Props {
+  section: string;
+  background: string;
+  color: string;
+  classList?: string;
+  rotate?: boolean;
+}
+
+const { section, background, color, classList, rotate } = Astro.props;
+---
+
+<style>
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in-up 0.8s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+</style>
+
+<div
+  class=`absolute h-4 bottom-0 transition-all opacity-0 translate-y-4 absolute animate-fade-in w-full ${background}`
+>
+</div>
+<button
+  class=`h-12 w-12 rounded-full transition-all opacity-0 translate-y-4 absolute -bottom-2 animate-fade-in ${background} ${color} ${classList}`
+  onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
+>
+  <i class=`fa-solid fa-lg fa-angles-${rotate?"up":"down"}`></i>
+</button>
