@@ -7,4 +7,3 @@ export default defineConfig({
   integrations: [tailwind()],
   site: "https://kreativethinker.github.io",
 });
-
