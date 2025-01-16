@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Anumeya Sehgal">
+	<div class="md:mx-10 lg:px-20 justify-center my-5 lg:my-auto">
+    <div class="flex flex-col lg:flex-row justify-center">
+      <div class="bg-black flex flex-col flex-shrink-0 space-y-5 items-center justify-center">
+        <img src="./Anumeya.jpg" class="rounded-full bg-navy border-crimson border-3 w-64"></img>
+        <div class="flex flex-col justify-start md:space-x-2 items-center">
+          <h1 class="text-3xl md:text-2xl text-white font-bold">Hi! I am</h1>
+          <h1 class="text-3xl md:text-2xl text-red font-bold">Anumeya</h1>
+        </div>
+        <div class="hidden lg:grid lg:grid-flow-row w-full text-white justify-evenly text-left gap-1 mt-50">
+          <a href="https://github.com/KreativeThinker" class="inline space-x-2 justify-center text-md">
+            <i class="fa-brands fa-github"></i><p class="md:inline hidden">KreativeThinker</p>
+          </a>
+          <a href="https://linkedin.com/in/anumeya-sehgal" class="inline space-x-2 justify-center">
+            <i class="fa-brands fa-linkedin"></i><p class="md:inline hidden">Anumeya Sehgal</p>
+          </a>
+          <a href="https://twitter.com/AnumeyaSehgal" class="inline space-x-2 justify-center">
+            <i class="fa-brands fa-x-twitter"></i><p class="md:inline hidden">AnumeyaSehgal</p>
+          </a>
+        </div>
+      </div>
+      <div class="items-center flex flex-col space-y-10 px-10 md:px-20 lg:my-10">
+        <h1 class="text-3xl text-white font-bold hidden lg:flex">About</h1>
+        <p class="text-white text-center">
+          A tech enthusiast with a curious, problem solving mind actively analysing and finding ways to improve both self and team. From a start in the field of electronics, I am now working with software pursuing full-stack web development.<br>
+          In my free time, I am often engaged in <a href="https://lichess.org/@/Robochess_2020">chess</a>, music or brainstorming ideas.
+        </p>
+        <hr class="text-white w-full mt-10 lg:hidden">
+        <h1 class="text-3xl text-white font-bold">Projects</h1>
+        <div class="bg-black items-center grid grid-cols-1 md:grid-cols-2 gap-5">
+            <Card title='VERT AI' href='https://github.com/mradigen/vert.ai'>
+              A green finance stock market for Encryptcon, a 24 hour hackathon at IIT Madras.
+            </Card>
+            <Card title='Portfolio' href='https://github.com/KreativeThinker/kreativethinker.github.io'>
+              The code for this website, made using Astro and tailwindcss.
+            </Card>
+            <Card title='PWNCORE' href='https://github.com/KreativeThinker/pwncore'>
+              The backend for a CTF platform used by the Linux Users Group of VIT Chennai during Password 2024.
+            </Card>
+            <Card title='My Configs' href='https://github.com/KreativeThinker/dotfiles'>
+              These are the dotfiles of my current arch setup (Yes I use Arch BTW) with BSPWM, polybar, neovim, etc.
+            </Card>
+          </div>
+       </div>
+      </div>
+	</div>
+</Layout>
