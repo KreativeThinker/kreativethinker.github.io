@@ -1,74 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Screen from "../components/Screen.astro";
-import FooterLink from "../components/FooterLink.astro";
 import Heading from "../components/Heading.astro";
 import Separator1 from "../components/separators/Separator1.astro";
 import Separator2 from "../components/separators/Separator2.astro";
+import ScrollButton from "../components/ScrollButton.astro";
 ---
-
-<style>
-  @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(1rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in-up 0.8s ease-in-out forwards;
-    animation-delay: 1s;
-  }
-</style>
 
 <Layout title="Anumeya Sehgal">
   <Screen anchor="about" background="bg-background" color="text-text">
     <Separator1 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
     <Heading color="text-accent">Anumeya</Heading>
-    <div
-      class="flex flex-row w-full text-white justify-evenly text-center py-5"
-    >
-      <FooterLink
-        href="https://github.com/KreativeThinker"
-        icon="fa-brands fa-github"
-        title="KreativeThinker"
-      />
-      <FooterLink
-        href="https://linkedin.com/in/anumeya-sehgal"
-        icon="fa-brands fa-linkedin-in"
-        title="anumeya-sehgal"
-      />
-      <FooterLink
-        href="https://twitter.com/AnumeyaSehgal"
-        icon="fa-brands fa-x-twitter"
-        title="AnumeyaSehgal"
-      />
-      <FooterLink
-        href="mailto:anumeyasehgal@proton.me"
-        icon="fa-regular fa-envelope"
-        title="anumeyasehgal@proton.me"
-      />
-    </div>
+    <button onclick="" class="m-4">Click To Read About Me</button>
+    <p></p>
     <Heading color="text-accent">Sehgal</Heading>
     <Separator1 classList="absolute bottom-0 h-[40%] w-auto" />
-    <button
-      class="bg-none p-4 text-background transition-all opacity-0 translate-y-4 absolute bottom-4 animate-fade-in"
-    >
-      <i class="fa-solid fa-lg fa-angles-down"></i>
-    </button>
+    <ScrollButton
+      background="bg-background"
+      color="text-accent"
+      section="projects"
+    />
   </Screen>
   <Screen anchor="projects" background="bg-accent" color="text-background">
     <Separator2 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
     <Heading color="text-background" classList="uppercase">Projects</Heading>
     <Separator2 classList="absolute bottom-0 h-[40%] w-auto" />
+    <ScrollButton
+      background="bg-accent"
+      color="text-background"
+      section="blog"
+    />
   </Screen>
   <Screen anchor="blog" background="bg-background" color="text-text">
     <Separator1 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
-    <Heading color="text-accent">Blog</Heading>
+    <Heading color="text-accent uppercase">Blog</Heading>
     <Separator1 classList="absolute bottom-0 h-[40%] w-auto" />
+    <ScrollButton
+      background="bg-background"
+      color="text-accent"
+      section="about"
+      rotate
+    />
   </Screen>
 </Layout>
