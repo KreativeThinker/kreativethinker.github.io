@@ -1,7 +1,11 @@
 ## Technologies used:
-  - Astro
-  - Tailwindcss
+
+- Astro
+- Tailwindcss
+
 ---
+
 ## TODOs
+
 - [x] Landing page
 - [ ] Blog
