@@ -1,0 +1,16 @@
+---
+interface Props {
+  anchor: string;
+  background: string;
+  color: string;
+}
+
+const { anchor, background, color } = Astro.props;
+---
+
+<div
+  id={anchor}
+  class={`flex flex-col snap-center items-center justify-center relative w-screen h-screen overflow-hidden ${background} ${color}`}
+>
+  <slot />
+</div>

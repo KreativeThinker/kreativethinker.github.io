@@ -1,0 +1,12 @@
+---
+interface Props {
+  color: string;
+  classList?: string;
+}
+
+const { color, classList } = Astro.props;
+---
+
+<p class=`text-5xl font-semibold ${color} ${classList}`>
+  <slot />
+</p>

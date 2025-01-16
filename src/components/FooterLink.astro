@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  icon: string;
+}
+
+const { href, title, icon } = Astro.props;
+---
+
+<a href={href} class="inline space-x-2 justify-center hover:underline">
+  <i class=`${icon} fa-lg`></i><p class="md:inline hidden">{title}</p>
+</a>
