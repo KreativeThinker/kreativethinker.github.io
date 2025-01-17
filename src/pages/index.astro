@@ -1,45 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Screen from "../components/Screen.astro";
-import Heading from "../components/Heading.astro";
-import Separator1 from "../components/separators/Separator1.astro";
-import Separator2 from "../components/separators/Separator2.astro";
-import ScrollButton from "../components/ScrollButton.astro";
+import About from "../components/Screens/About.astro";
+import Projects from "../components/Screens/Projects.astro";
+import Blog from "../components/Screens/Blog.astro";
 ---
 
 <Layout title="Anumeya Sehgal">
-  <Screen anchor="about" background="bg-background" color="text-text">
-    <Separator1 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
-    <Heading color="text-accent">Anumeya</Heading>
-    <button onclick="" class="m-4">Click To Read About Me</button>
-    <p></p>
-    <Heading color="text-accent">Sehgal</Heading>
-    <Separator1 classList="absolute bottom-0 h-[40%] w-auto" />
-    <ScrollButton
-      background="bg-background"
-      color="text-accent"
-      section="projects"
-    />
-  </Screen>
-  <Screen anchor="projects" background="bg-accent" color="text-background">
-    <Separator2 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
-    <Heading color="text-background" classList="uppercase">Projects</Heading>
-    <Separator2 classList="absolute bottom-0 h-[40%] w-auto" />
-    <ScrollButton
-      background="bg-accent"
-      color="text-background"
-      section="blog"
-    />
-  </Screen>
-  <Screen anchor="blog" background="bg-background" color="text-text">
-    <Separator1 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
-    <Heading color="text-accent uppercase">Blog</Heading>
-    <Separator1 classList="absolute bottom-0 h-[40%] w-auto" />
-    <ScrollButton
-      background="bg-background"
-      color="text-accent"
-      section="about"
-      rotate
-    />
-  </Screen>
+  <About />
+  <Projects />
+  <Blog />
 </Layout>
