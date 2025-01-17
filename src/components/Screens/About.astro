@@ -1,0 +1,147 @@
+---
+import Heading from "../../components/Heading.astro";
+import Screen from "../../components/Screen.astro";
+import Separator1 from "../../components/separators/Separator1.astro";
+import ScrollButton from "../../components/ScrollButton.astro";
+---
+
+<style is:global>
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  .fade-out {
+    animation: fadeOut 0.8s ease forwards;
+  }
+</style>
+
+<Screen anchor="about" background="bg-background" color="text-text">
+  <Separator1
+    id="separator-top"
+    classList="absolute top-0 rotate-180 h-[40%] w-auto"
+  />
+  <Heading id="heading-top" color="text-accent">Anumeya</Heading>
+  <button
+    id="about-me-button"
+    class="m-4"
+    style="cursor: url('/assets/cursor_inverted.svg'), auto;"
+  >
+    Click To Read About Me
+  </button>
+  <p
+    id="about-me-text"
+    class="m-4 hidden text-center align-middle opacity-0 lg:w-[40%]"
+  >
+  </p>
+  <Heading id="heading-bottom" color="text-accent">Sehgal</Heading>
+  <Separator1
+    id="separator-bottom"
+    classList="absolute bottom-0 h-[40%] w-auto"
+  />
+  <ScrollButton
+    background="bg-background"
+    color="text-accent"
+    section="projects"
+  />
+
+  <button
+    id="next-section-button"
+    class="absolute bottom-[35%] right-4 z-10 h-8 w-8 rounded-full bg-none text-text"
+    style="cursor: url('/assets/cursor_inverted.svg'), auto;"
+  >
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+  <button
+    id="prev-section-button"
+    class="absolute bottom-[35%] left-4 z-10 h-8 w-8 rounded-full bg-none text-text"
+    style="cursor: url('/assets/cursor_inverted.svg'), auto;"
+  >
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+</Screen>
+<script>
+  const texts = [
+    "I’m a problem-solver, leader, and tech enthusiast with a relentless drive for excellence.",
+    "Starting out in electronics, I transitioned into software development, where I specialize in building scalable backends and full-stack applications.",
+    "I thrive in high-pressure situations, balancing reliability and speed while delivering impactful solutions.",
+  ];
+
+  let index = -1;
+
+  const aboutMeText = document.getElementById("about-me-text");
+  const nextButton = document.getElementById("next-section-button");
+  const prevButton = document.getElementById("prev-section-button");
+  const aboutMeButton = document.getElementById("about-me-button");
+
+  aboutMeButton.addEventListener("click", function showAboutMe() {
+    aboutMeButton.classList.add("fade-out");
+    document.getElementById("heading-top").classList.add("fade-out");
+    document.getElementById("heading-bottom").classList.add("fade-out");
+
+    setTimeout(() => {
+      index = 0;
+      aboutMeText.textContent = texts[index];
+      aboutMeText.classList.remove("hidden");
+      aboutMeText.classList.add("fade-in");
+
+      aboutMeButton.classList.add("hidden");
+      document.getElementById("heading-top").classList.add("hidden");
+      document.getElementById("heading-bottom").classList.add("hidden");
+
+      nextButton.style.display = "block";
+      prevButton.style.display = "block";
+
+      updateButtonVisibility();
+    }, 800);
+  });
+
+  function updateText(index) {
+    aboutMeText.classList.add("fade-out");
+
+    setTimeout(() => {
+      aboutMeText.textContent = texts[index];
+      aboutMeText.classList.remove("fade-out");
+      aboutMeText.classList.add("fade-in");
+    }, 800);
+
+    updateButtonVisibility();
+  }
+
+  function updateButtonVisibility() {
+    prevButton.style.display = index > 0 ? "block" : "none";
+    nextButton.style.display = index < texts.length - 1 ? "block" : "none";
+  }
+
+  nextButton.addEventListener("click", () => {
+    if (index < texts.length - 1) {
+      index++;
+      updateText(index);
+    }
+  });
+
+  prevButton.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      updateText(index);
+    }
+  });
+
+  nextButton.style.display = "none";
+  prevButton.style.display = "none";
+</script>

@@ -1,0 +1,36 @@
+---
+import Heading from "../../components/Heading.astro";
+import Screen from "../../components/Screen.astro";
+import Separator2 from "../../components/separators/Separator2.astro";
+import ScrollButton from "../../components/ScrollButton.astro";
+// import Card from "../Card.astro";
+---
+
+<Screen anchor="projects" background="bg-accent" color="text-background" invert>
+  <Separator2 classList="absolute top-0 rotate-180 h-[40%] w-auto" />
+  <Heading color="text-background" classList="uppercase">Projects</Heading>
+  <Separator2 classList="absolute bottom-0 h-[40%] w-auto" />
+  <ScrollButton
+    background="bg-accent"
+    color="text-background"
+    section="blog"
+    invert
+  />
+  <!-- <div class="flex h-full w-full flex-col justify-evenly"> -->
+  <!--   <Card title="LifeFence" code="https://github.com/kreativethinker/lifefence"> -->
+  <!--     <p class="hidden overflow-ellipsis p-4 text-text ..."> -->
+  <!--       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit -->
+  <!--       at nesciunt repellat veniam praesentium, ut nam, iure ad esse facilis -->
+  <!--       fugit molestias nisi. Soluta similique assumenda deleniti non architecto -->
+  <!--       exercitationem? -->
+  <!--     </p> -->
+  <!--     <img -->
+  <!--       src="/assets/projects/LifeFence Logo.png" -->
+  <!--       class="h-full" -->
+  <!--       alt="LifeFence" -->
+  <!--     /> -->
+  <!--   </Card> -->
+  <!--   <Card title="Pwncore" code="https://github.com/kreativethinker/lifefence" /> -->
+  <!--   <Card title="vert.ai" code="https://github.com/kreativethinker/lifefence" /> -->
+  <!-- </div> -->
+</Screen>
