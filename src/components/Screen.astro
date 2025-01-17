@@ -3,14 +3,20 @@ interface Props {
   anchor: string;
   background: string;
   color: string;
+  invert?: boolean;
 }
 
-const { anchor, background, color } = Astro.props;
+const { anchor, background, color, invert } = Astro.props;
+
+const cursorPath = invert
+  ? "/assets/cursor_inverted.svg"
+  : "/assets/cursor.svg";
 ---
 
 <div
   id={anchor}
   class={`flex flex-col snap-center items-center justify-center relative w-screen h-screen overflow-hidden ${background} ${color}`}
+  style={`cursor: url('${cursorPath}'), auto;`}
 >
   <slot />
 </div>

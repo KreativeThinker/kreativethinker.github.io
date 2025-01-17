@@ -5,9 +5,10 @@ interface Props {
   color: string;
   classList?: string;
   rotate?: boolean;
+  invert?: boolean;
 }
 
-const { section, background, color, classList, rotate } = Astro.props;
+const { section, background, color, classList, rotate, invert } = Astro.props;
 ---
 
 <style>
@@ -35,6 +36,7 @@ const { section, background, color, classList, rotate } = Astro.props;
 <button
   class=`h-12 w-12 rounded-full transition-all opacity-0 translate-y-4 absolute -bottom-2 animate-fade-in ${background} ${color} ${classList}`
   onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
+  style=`cursor: url('${invert?"/assets/cursor.svg":"/assets/cursor_inverted.svg"}'), auto;`
 >
   <i class=`fa-solid fa-lg fa-angles-${rotate?"up":"down"}`></i>
 </button>

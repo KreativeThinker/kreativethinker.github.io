@@ -1,14 +1,15 @@
 ---
 interface Props {
   classList?: string;
+  id?: string;
 }
 
-const { classList } = Astro.props;
+const { classList, id } = Astro.props;
 ---
 
 <svg
   width="100%"
-  id="svg"
+  id=`${id}`
   viewBox="0 0 1440 690"
   xmlns="http://www.w3.org/2000/svg"
   class=`transition duration-1000 ease-in-out delay-150 ${classList}`
