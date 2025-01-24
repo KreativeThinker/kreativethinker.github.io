@@ -2,27 +2,28 @@
 interface Props {
   title: string;
   code: string;
-  image?: string;
   demo?: string;
 }
 
-const { title, code, image, demo } = Astro.props;
+const { title, code, demo } = Astro.props;
 ---
 
 <div
-  class="mx-8 flex h-48 w-1/2 flex-row rounded-md bg-background align-middle opacity-95"
+  class="mx-auto flex aspect-square h-48 snap-center flex-row rounded-md bg-background align-middle opacity-95"
 >
-  <div class="flex flex-col justify-evenly rounded-l-md bg-text p-2">
-    <a href={code} class="text-center text-background"
+  <div
+    class="flex flex-col justify-evenly rounded-l-md border-r-4 border-text bg-background p-2"
+  >
+    <a href={code} class="text-center text-text"
       ><i class="fa fa-md fa-code"></i></a
     >
-    <a href={demo} class="text-background"><i class="fa fa-md fa-eye"></i></a>
-    <a href="#" class="text-background"><i class="fa fa-md fa-share"></i></a>
+    <a href={demo} class="text-text"><i class="fa fa-md fa-eye"></i></a>
+    <a href="#" class="text-text"><i class="fa fa-md fa-share"></i></a>
   </div>
   <div class="relative flex flex-col overflow-hidden">
     <slot />
-    <div class="absolute bottom-0 w-fit bg-text">
-      <p class="pr-4 font-semibold text-background">{title}</p>
+    <div class="absolute bottom-0 w-full rounded-br-md bg-text">
+      <p class="text-center font-semibold text-background">{title}</p>
     </div>
   </div>
 </div>
