@@ -1,12 +1,17 @@
 ---
+import ScrollButton from "../components/ScrollButton.astro";
+import Separator from "../components/Separator.astro";
+
 interface Props {
   anchor: string;
   background: string;
   color: string;
+  next_section: string;
   invert?: boolean;
+  rotate?: boolean;
 }
 
-const { anchor, background, color, invert } = Astro.props;
+const { anchor, background, color, next_section, invert, rotate } = Astro.props;
 
 const cursorPath = invert
   ? "/assets/cursor_inverted.svg"
@@ -18,5 +23,8 @@ const cursorPath = invert
   class={`flex flex-col snap-center items-center justify-center relative w-screen h-screen overflow-hidden ${background} ${color}`}
   style={`cursor: url('${cursorPath}'), auto;`}
 >
+  <Separator classList="absolute top-0 rotate-180 h-[40%] w-auto" {invert} />
+  <ScrollButton section={next_section} {invert} {rotate} />
+  <Separator classList="absolute bottom-0 h-[40%] w-auto" {invert} />
   <slot />
 </div>
