@@ -1,0 +1,31 @@
+---
+import Screen from "../components/Screen.astro";
+import Heading from "../components/Heading.astro";
+
+interface Props {
+  title: string;
+  anchor: string;
+  github_link: string;
+  mockup: string;
+  next_section: string;
+  demo?: string;
+  invert?: boolean;
+}
+
+const { title, anchor, github_link, mockup, next_section, demo, invert } =
+  Astro.props;
+
+const background_color = invert ? "bg-accent" : "bg-background";
+const color = invert ? "text-background" : "text-accent";
+---
+
+<Screen
+  background={background_color}
+  color={color}
+  anchor={anchor}
+  next_section={next_section}
+  {invert}
+>
+  <Heading color={color} classList="font-bold mb-4 text-center">{title}</Heading
+  >
+</Screen>
