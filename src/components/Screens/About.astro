@@ -1,7 +1,6 @@
 ---
 import Heading from "../../components/Heading.astro";
 import Screen from "../../components/Screen.astro";
-import Separator1 from "../../components/separators/Separator1.astro";
 import ScrollButton from "../../components/ScrollButton.astro";
 ---
 
@@ -24,22 +23,25 @@ import ScrollButton from "../../components/ScrollButton.astro";
     }
   }
   .fade-in {
-    animation: fadeIn 0.8s ease forwards;
+    animation: fadeIn 2s ease forwards;
   }
   .fade-out {
-    animation: fadeOut 0.8s ease forwards;
+    animation: fadeOut 2s ease forwards;
   }
 </style>
 
-<Screen anchor="about" background="bg-background" color="text-text">
-  <Separator1
-    id="separator-top"
-    classList="absolute top-0 rotate-180 h-[40%] w-auto"
-  />
-  <Heading id="heading-top" color="text-accent">Anumeya</Heading>
+<Screen
+  anchor="about"
+  background="bg-background"
+  color="text-text"
+  next_section="projects"
+>
+  <Heading id="heading-top" color="text-accent" classList="fade-in"
+    >Anumeya</Heading
+  >
   <button
     id="about-me-button"
-    class="m-4"
+    class="fade-in m-4"
     style="cursor: url('/assets/cursor_inverted.svg'), auto;"
   >
     Click To Read About Me
@@ -49,17 +51,9 @@ import ScrollButton from "../../components/ScrollButton.astro";
     class="m-4 hidden text-center align-middle opacity-0 lg:w-[40%]"
   >
   </p>
-  <Heading id="heading-bottom" color="text-accent">Sehgal</Heading>
-  <Separator1
-    id="separator-bottom"
-    classList="absolute bottom-0 h-[40%] w-auto"
-  />
-  <ScrollButton
-    background="bg-background"
-    color="text-accent"
-    section="projects"
-  />
-
+  <Heading id="heading-bottom" color="text-accent" classList="fade-in"
+    >Sehgal</Heading
+  >
   <button
     id="next-section-button"
     class="absolute bottom-[35%] right-4 z-10 h-8 w-8 rounded-full bg-none text-text"
@@ -75,6 +69,7 @@ import ScrollButton from "../../components/ScrollButton.astro";
     <i class="fa-solid fa-arrow-left"></i>
   </button>
 </Screen>
+
 <script>
   const texts = [
     "I’m a problem-solver, leader, and tech enthusiast with a relentless drive for excellence.",
