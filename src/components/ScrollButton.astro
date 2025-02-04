@@ -1,14 +1,15 @@
 ---
 interface Props {
   section: string;
-  background: string;
-  color: string;
   classList?: string;
   rotate?: boolean;
   invert?: boolean;
 }
 
-const { section, background, color, classList, rotate, invert } = Astro.props;
+const { section, classList, rotate, invert } = Astro.props;
+
+const background = invert ? "bg-accent" : "bg-background";
+const color = invert ? "text-background" : "text-accent";
 ---
 
 <style>
@@ -24,17 +25,19 @@ const { section, background, color, classList, rotate, invert } = Astro.props;
   }
 
   .animate-fade-in {
-    animation: fade-in-up 0.8s ease-in-out forwards;
-    animation-delay: 1s;
+    animation: fade-in-up 1s ease-in-out forwards;
+    animation-delay: 2s;
   }
 </style>
 
-<div
-  class=`absolute h-4 bottom-0 transition-all opacity-0 translate-y-4 absolute animate-fade-in w-full ${background}`
->
-</div>
 <button
-  class=`h-12 w-12 rounded-full transition-all opacity-0 translate-y-4 absolute -bottom-2 animate-fade-in ${background} ${color} ${classList}`
+  class=`z-20 absolute h-4 bottom-0 transition-all opacity-0 translate-y-4 absolute animate-fade-in w-full ${background}`
+  onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
+  style=`cursor: url('${invert?"/assets/cursor.svg":"/assets/cursor_inverted.svg"}'), auto;`
+>
+</button>
+<button
+  class=`h-12 z-20 w-12 rounded-full transition-all opacity-0 translate-y-4 absolute -bottom-2 animate-fade-in ${background} ${color} ${classList}`
   onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
   style=`cursor: url('${invert?"/assets/cursor.svg":"/assets/cursor_inverted.svg"}'), auto;`
 >
