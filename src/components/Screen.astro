@@ -9,9 +9,10 @@ interface Props {
   next_section: string;
   invert?: boolean;
   rotate?: boolean;
+  separator?: boolean;
 }
 
-const { anchor, background, color, next_section, invert, rotate } = Astro.props;
+const { anchor, background, color, next_section, invert, rotate, separator } = Astro.props;
 
 const cursorPath = invert
   ? "/assets/cursor_inverted.svg"
@@ -23,8 +24,13 @@ const cursorPath = invert
   class={`flex flex-col snap-center items-center justify-center relative w-screen h-screen overflow-hidden ${background} ${color}`}
   style={`cursor: url('${cursorPath}'), auto;`}
 >
+  {separator ? 
   <Separator classList="absolute top-0 rotate-180 h-[40%] w-auto" {invert} />
   <ScrollButton section={next_section} {invert} {rotate} />
   <Separator classList="absolute bottom-0 h-[40%] w-auto" {invert} />
+  :
+  <Separator classList="absolute bottom-0 h-[40%] w-auto" {invert} />
+  <ScrollButton section={next_section} {invert} {rotate} />
+  }
   <slot />
 </div>

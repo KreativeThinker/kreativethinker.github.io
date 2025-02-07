@@ -1,29 +1,30 @@
 ---
 interface Props {
   title: string;
-  code: string;
-  demo?: string;
+  code?: string;
+  view?: string;
 }
 
-const { title, code, demo } = Astro.props;
+const { title, code, view } = Astro.props;
 ---
 
 <div
-  class="mx-auto flex aspect-square h-48 snap-center flex-row rounded-md bg-background align-middle text-sm opacity-95"
+  class="mx-auto flex w-full snap-center flex-col rounded-md border-[0.25em] border-text bg-background align-middle text-sm opacity-95"
 >
-  <div
-    class="flex flex-col justify-evenly rounded-l-md border-r-[0.25em] border-text bg-background p-2"
-  >
-    <a href={code} class="text-center text-text"
-      ><i class="fa fa-md fa-code"></i></a
+  <div class="flex flex-row">
+    <div
+      class="flex flex-col justify-evenly rounded-l-md border-r-[0.25em] border-text bg-background p-2"
     >
-    <a href={demo} class="text-text"><i class="fa fa-md fa-eye"></i></a>
-    <a href="#" class="text-text"><i class="fa fa-md fa-share"></i></a>
-  </div>
-  <div class="relative flex flex-col overflow-hidden">
-    <slot />
-    <div class="absolute bottom-0 w-full rounded-br-md bg-text">
-      <p class="text-center font-semibold text-background">{title}</p>
+      <a href={code} class="text-center text-text"
+        ><i class="fa fa-md fa-code"></i></a
+      >
+      <a href={view} class="text-text"><i class="fa fa-md fa-eye"></i></a>
+    </div>
+    <div class="p-2">
+      <slot />
     </div>
   </div>
+  <p class="bg-text text-center font-semibold text-background">
+    {title}
+  </p>
 </div>

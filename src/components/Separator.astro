@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { classList, invert } = Astro.props;
-const color = invert ? "#292E42" : "#FF9E64";
+// const color = invert ? "#292E42" : "#FF9E64";
+const color = !invert ? "#2e2e2e" : "#e2e2e2";
 ---
 
 <svg
