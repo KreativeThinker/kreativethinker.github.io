@@ -1,62 +1,47 @@
 ---
 import Heading from "../../components/Heading.astro";
 import Screen from "../../components/Screen.astro";
-import ProjectScreen from "../../components/ProjectScreen.astro";
+import Card from "../../components/Card.astro";
 ---
 
 <Screen
   anchor="projects"
-  background="bg-accent"
-  color="text-background"
-  next_section="project-1"
-  invert
+  background="bg-background"
+  color="text-text"
+  next_section="socials"
 >
-  <Heading
-    color="text-background"
-    classList="font-bold uppercase mb-4 text-center">Projects</Heading
-  >
+  <div class="flex h-full w-full flex-col justify-evenly p-8 align-middle">
+    <div>
+      <Heading
+        color="text-accent"
+        classList="font-bold uppercase text-center mb-4">Projects</Heading
+      >
+      <p class="text-center">
+        View more on my <i class="fa fa-md fa-github"></i>
+        <a
+          href="https://github.com/KreativeThinker"
+          style='cursor: url("/assets/cursor_inverted.svg"), auto;'
+          class="underline">Github</a
+        >
+      </p>
+    </div>
+    <Card title="LifeFence" code="https://github.com/KreativeThinker/LifeFence">
+      Mobile App built with React-Native to track and update your TODOs based on
+      location.
+    </Card>
+    <Card title="Pwncore" code="https://github.com/lugvitc/pwncore">
+      Scallable CTF backend written in FastAPI. Used for conducting various
+      events
+    </Card>
+    <Card
+      title="learn-language"
+      code="https://github.com/KreativeThinker/learn-language"
+    >
+      A simple web interface made in React during exams to help learn german
+      using flash cards.
+    </Card>
+    <Card title="dotfiles" code="https://github.com/KreativeThinker/dotfiles">
+      The configuration files for my linux workflow. BSPWM, neovim, zen-browser
+    </Card>
+  </div>
 </Screen>
-
-<ProjectScreen
-  title="LifeFence"
-  github_link="https://github.com/kreativethinker/lifefence"
-  mockup=""
-  anchor="project-1"
-  next_section="project-2"
->
-  <p class="p-2 text-text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quas id
-    nihil expedita cumque quam animi mollitia quod, voluptas modi dolorem
-    doloremque dignissimos fugit ipsa dolor accusantium dolorum perferendis
-    possimus.
-  </p>
-</ProjectScreen>
-<ProjectScreen
-  title="Pwncore"
-  github_link="https://github.com/kreativethinker/lifefence"
-  mockup=""
-  anchor="project-2"
-  next_section="project-3"
-  invert
->
-  <p class="p-2 text-text">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed enim quos fuga
-    blanditiis perferendis incidunt repellendus dolorum explicabo eum, deleniti
-    magnam earum odio, impedit reiciendis accusantium repudiandae minus
-    excepturi architecto!
-  </p>
-</ProjectScreen>
-<ProjectScreen
-  title="vert.ai"
-  github_link="https://github.com/kreativethinker/lifefence"
-  anchor="project-3"
-  mockup=""
-  next_section="blog"
->
-  <p class="p-2 text-text">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed enim quos fuga
-    blanditiis perferendis incidunt repellendus dolorum explicabo eum, deleniti
-    magnam earum odio, impedit reiciendis accusantium repudiandae minus
-    excepturi architecto!
-  </p>
-</ProjectScreen>
