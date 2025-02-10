@@ -25,11 +25,11 @@ const cursorPath = invert
   style={`cursor: url('${cursorPath}'), auto;`}
 >
   {separator ? 
-  <Separator classList="absolute top-0 rotate-180 h-[40%] w-auto" {invert} />
+  <Separator classList="absolute top-0 rotate-180 h-[40%] w-auto md:w-full md:h-auto md:-translate-y-1/3 lg:-translate-y-1/2" {invert} />
   <ScrollButton section={next_section} {invert} {rotate} />
-  <Separator classList="absolute bottom-0 h-[40%] w-auto" {invert} />
+  <Separator classList="absolute bottom-0 h-[40%] w-auto md:w-full md:h-auto md:translate-y-1/3 lg:translate-y-1/2" {invert} />
   :
-  <Separator classList="absolute bottom-0 h-[40%] w-auto" {invert} />
+  <Separator classList="absolute bottom-0 h-[40%] w-auto md:w-full md:h-auto md:translate-y-1/3 lg:translate-y-1/2" {invert} />
   <ScrollButton section={next_section} {invert} {rotate} />
   }
   <slot />
