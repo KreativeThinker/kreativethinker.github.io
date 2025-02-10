@@ -8,9 +8,9 @@ import Card from "../../components/Card.astro";
   anchor="projects"
   background="bg-background"
   color="text-text"
-  next_section="socials"
+  next_section="about"
 >
-  <div class="flex h-full w-full flex-col justify-evenly p-8 align-middle">
+  <div class="flex h-full w-full flex-col justify-evenly align-middle">
     <div>
       <Heading
         color="text-accent"
@@ -25,23 +25,53 @@ import Card from "../../components/Card.astro";
         >
       </p>
     </div>
-    <Card title="LifeFence" code="https://github.com/KreativeThinker/LifeFence">
-      Mobile App built with React-Native to track and update your TODOs based on
-      location.
-    </Card>
-    <Card title="Pwncore" code="https://github.com/lugvitc/pwncore">
-      Scallable CTF backend written in FastAPI. Used for conducting various
-      events
-    </Card>
-    <Card
-      title="learn-language"
-      code="https://github.com/KreativeThinker/learn-language"
+    <div
+      class="flex snap-x snap-mandatory flex-row gap-8 overflow-x-scroll p-8 md:justify-evenly"
     >
-      A simple web interface made in React during exams to help learn german
-      using flash cards.
-    </Card>
-    <Card title="dotfiles" code="https://github.com/KreativeThinker/dotfiles">
-      The configuration files for my linux workflow. BSPWM, neovim, zen-browser
-    </Card>
+      <Card
+        title="LifeFence"
+        code="https://github.com/KreativeThinker/LifeFence"
+        image="/assets/projects/LifeFence.jpeg"
+        technologies={["React Native", "Python", "FastAPI", "Docker"]}
+      >
+        TODO app with advanced location based features and group management.
+      </Card>
+      <Card
+        title="Pwncore"
+        code="https://github.com/lugvitc/pwncore"
+        image=""
+        technologies={["Python", "FastAPI", "TortoiseORM", "Docker"]}
+      >
+        Scalable CTF backend written in FastAPI. Offers 2 modes and other
+        features including:
+        <ul class="text-center">
+          <li>Dynamic Flags</li>
+          <li>Dynamic Points</li>
+          <li>Jeopardy CTF</li>
+          <li>Attack-and-Defense CTF</li>
+          <li>Powerups to gamify</li>
+        </ul>
+      </Card>
+      <Card
+        title="learn-language"
+        code="https://github.com/KreativeThinker/learn-language"
+        image=""
+        technologies={["React", "Markdown"]}
+      >
+        A simple web interface made in React during exams to help learn german
+        using flash cards.
+      </Card>
+      <Card
+        title="RecruitReview"
+        code="https://github.com/KreativeThinker/RecruitReview"
+        image=""
+        technologies={["React", "Supabase", "PostgreSQL"]}
+      >
+        A very simple admin panel to view, manage and shortlist candidates. Made
+        to make recruitment process of <a href="lugvitc.net" class="underline"
+          >LUGVITC
+        </a> easier.
+      </Card>
+    </div>
   </div>
 </Screen>

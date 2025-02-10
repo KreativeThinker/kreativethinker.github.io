@@ -1,30 +1,58 @@
 ---
+import Heading from "../components/Heading.astro";
+
 interface Props {
   title: string;
-  code?: string;
-  view?: string;
+  code: string;
+  image: string;
+  technologies: string[];
 }
 
-const { title, code, view } = Astro.props;
+const { title, code, image, technologies } = Astro.props;
 ---
 
 <div
-  class="mx-auto flex w-full snap-center flex-col rounded-md border-[0.25em] border-text bg-background align-middle text-sm opacity-95"
+  class="relative mx-auto h-[600px] w-[300px] min-w-[300px] snap-center rounded-[2.5em] border-[14px] border-accent bg-accent shadow-xl shadow-accent dark:border-accent"
 >
-  <div class="flex flex-row">
-    <div
-      class="flex flex-col justify-evenly rounded-l-md border-r-[0.25em] border-text bg-background p-2"
-    >
-      <a href={code} class="text-center text-text"
-        ><i class="fa fa-md fa-code"></i></a
-      >
-      <a href={view} class="text-text"><i class="fa fa-md fa-eye"></i></a>
-    </div>
-    <div class="p-2">
-      <slot />
-    </div>
+  <div
+    class="absolute left-1/2 top-0 z-10 h-[18px] w-[148px] -translate-x-1/2 rounded-b-[1em] bg-accent"
+  >
   </div>
-  <p class="bg-text text-center font-semibold text-background">
-    {title}
-  </p>
+  <div
+    class="absolute -start-[17px] top-[124px] h-[46px] w-[3px] rounded-s-lg bg-accent"
+  >
+  </div>
+  <div
+    class="absolute -start-[17px] top-[178px] h-[46px] w-[3px] rounded-s-lg bg-accent"
+  >
+  </div>
+  <div
+    class="absolute -end-[17px] top-[142px] h-[64px] w-[3px] rounded-e-lg bg-accent"
+  >
+  </div>
+  <div
+    class="flex h-full w-full flex-col justify-center overflow-scroll rounded-[2em] bg-background align-middle"
+  >
+    <Heading color="text-accent" classList="text-center text-3xl">
+      {title}
+    </Heading>
+    <p class="p-4 text-center">
+      <slot />
+    </p>
+    <img src={image} class="hidden h-full w-full" />
+    {
+      technologies && technologies.length > 0 && (
+        <div class="mt-4 flex flex-wrap justify-center gap-2 p-4">
+          {technologies.map((tech) => (
+            <span class="rounded-lg bg-accent px-3 py-1 text-sm text-background">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )
+    }
+    <a href={code} class="text-center underline">
+      <i class="fa fa-xl fa-github text-accent"></i>
+    </a>
+  </div>
 </div>
