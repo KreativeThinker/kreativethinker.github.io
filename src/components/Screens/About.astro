@@ -8,49 +8,59 @@ import asciiart from "../../neofetch-ascii.txt?raw";
   anchor="about"
   background="bg-background"
   color="text-accent"
-  next_section="about"
+  next_section="root"
   rotate
 >
-  <Heading color="text-accent" classList="mb-4">$: neofetch</Heading>
-  <div
-    class="m-4 flex aspect-square justify-center overflow-hidden rounded-full align-middle"
-  >
-    <p class="mb-4 whitespace-pre font-mono text-[2px]">{asciiart}</p>
-  </div>
-
-  <div
-    class="z-10 m-4 rounded-2xl bg-background p-4 font-mono text-sm text-text shadow-md shadow-accent"
-  >
-    <p><span class="font-bold text-accent">anumeyasehgal@earth</span></p>
-    <p><span class="font-bold text-accent">-------------------</span></p>
-    <p>
-      <span class="font-bold text-accent">OS:</span> Eat, Code, Sleep, Repeat
-    </p>
-    <p>
-      <span class="font-bold text-accent">Host:</span> Human, Occasionally Debugged
-    </p>
-    <p>
-      <span class="font-bold text-accent">Kernel:</span> Adaptive, Always Learning
-    </p>
-    <p><span class="font-bold text-accent">Uptime:</span> 19 years</p>
-    <p>
-      <span class="font-bold text-accent">Packages:</span> More than required
-    </p>
-    <!-- <p> -->
-    <!--   <span class="font-bold text-accent">Shell:</span> zsh, but I speak Bash too -->
-    <!-- </p> -->
-    <p>
-      <span class="font-bold text-accent">Theme:</span>
-    </p>
-    <p>
-      <span class="font-bold text-accent">Terminal:</span> WarpTerminal (I'm rusty)
-    </p>
-    <p><span class="font-bold text-accent">CPU:</span> Always Overclocked</p>
-    <p>
-      <span class="font-bold text-accent">GPU:</span> Calculating Best Solutions
-    </p>
-    <p>
-      <span class="font-bold text-accent">Memory:</span> 10M+ Facts and Topics
-    </p>
+  <Heading color="text-accent font-mono" classList="mb-4">$:neofetch</Heading>
+  <div class="z-10 flex flex-col justify-evenly align-middle md:flex-row">
+    <div
+      class="m-4 flex aspect-square justify-center overflow-hidden rounded-full align-middle shadow-md shadow-accent"
+    >
+      <p class="whitespace-pre font-mono text-[2px] text-accent">
+        {asciiart}
+      </p>
+    </div>
+    <div
+      class="m-4 rounded-xl bg-background p-4 font-mono text-sm text-text shadow-md shadow-accent"
+    >
+      <p><span class="font-bold text-accent">anumeyasehgal@earth</span></p>
+      <p><span class="font-bold text-accent">-------------------</span></p>
+      <p>
+        <span class="font-bold text-accent">OS:</span> Eat, Code, Sleep, Repeat
+      </p>
+      <p>
+        <span class="font-bold text-accent">Host:</span> Human, Occasionally Debugged
+      </p>
+      <p>
+        <span class="font-bold text-accent">Kernel:</span> Adaptive, Always Learning
+      </p>
+      <p><span class="font-bold text-accent">Uptime:</span> 19 years</p>
+      <p>
+        <span class="font-bold text-accent">Packages:</span> Everything I could find
+      </p>
+      <p>
+        <span class="font-bold text-accent">Theme:</span> Jack of all trades
+      </p>
+      <p>
+        <span class="font-bold text-accent">Terminal:</span> WarpTerminal (I'm rusty)
+      </p>
+      <p><span class="font-bold text-accent">CPU:</span> Always Overclocked</p>
+      <p>
+        <span class="font-bold text-accent">GPU:</span> Calculating Best Solutions
+      </p>
+      <p>
+        <span class="font-bold text-accent">Memory:</span> 10M+ Facts and Topics
+      </p>
+      <p>
+        <span class="font-bold text-accent">Social:</span> Music (Guitar/Drums),
+        Sports
+      </p>
+      <p>
+        <span class="font-bold text-accent">Communities:</span> Linux, FOSS, <a
+          href="github.com/stratoslinux"
+          class="underline">StratOS</a
+        >
+      </p>
+    </div>
   </div>
 </Screen>
