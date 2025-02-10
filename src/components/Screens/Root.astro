@@ -73,73 +73,73 @@ import SocialsLinks from "../SocialsLinks.astro";
   <!-- </button> -->
 </Screen>
 
-<script>
-  const texts = [
-    "I’m a problem-solver, leader, and tech enthusiast with a relentless drive for excellence.",
-    "Starting out in electronics, I transitioned into software development, where I specialize in building scalable backends and full-stack applications.",
-    "I thrive in high-pressure situations, balancing reliability and speed while delivering impactful solutions.",
-  ];
-
-  let index = -1;
-
-  const aboutMeText = document.getElementById("about-me-text");
-  const nextButton = document.getElementById("next-section-button");
-  const prevButton = document.getElementById("prev-section-button");
-  const aboutMeButton = document.getElementById("about-me-button");
-
-  aboutMeButton.addEventListener("click", function showAboutMe() {
-    aboutMeButton.classList.add("fade-out");
-    document.getElementById("heading-top").classList.add("fade-out");
-    document.getElementById("heading-bottom").classList.add("fade-out");
-
-    setTimeout(() => {
-      index = 0;
-      aboutMeText.textContent = texts[index];
-      aboutMeText.classList.remove("hidden");
-      aboutMeText.classList.add("fade-in");
-
-      aboutMeButton.classList.add("hidden");
-      document.getElementById("heading-top").classList.add("hidden");
-      document.getElementById("heading-bottom").classList.add("hidden");
-
-      nextButton.style.display = "block";
-      prevButton.style.display = "block";
-
-      updateButtonVisibility();
-    }, 800);
-  });
-
-  function updateText(index) {
-    aboutMeText.classList.add("fade-out");
-
-    setTimeout(() => {
-      aboutMeText.textContent = texts[index];
-      aboutMeText.classList.remove("fade-out");
-      aboutMeText.classList.add("fade-in");
-    }, 800);
-
-    updateButtonVisibility();
-  }
-
-  function updateButtonVisibility() {
-    prevButton.style.display = index > 0 ? "block" : "none";
-    nextButton.style.display = index < texts.length - 1 ? "block" : "none";
-  }
-
-  nextButton.addEventListener("click", () => {
-    if (index < texts.length - 1) {
-      index++;
-      updateText(index);
-    }
-  });
-
-  prevButton.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      updateText(index);
-    }
-  });
-
-  nextButton.style.display = "none";
-  prevButton.style.display = "none";
-</script>
+<!-- <script> -->
+<!--   const texts = [ -->
+<!--     "I’m a problem-solver, leader, and tech enthusiast with a relentless drive for excellence.", -->
+<!--     "Starting out in electronics, I transitioned into software development, where I specialize in building scalable backends and full-stack applications.", -->
+<!--     "I thrive in high-pressure situations, balancing reliability and speed while delivering impactful solutions.", -->
+<!--   ]; -->
+<!---->
+<!--   let index = -1; -->
+<!---->
+<!--   const aboutMeText = document.getElementById("about-me-text"); -->
+<!--   const nextButton = document.getElementById("next-section-button"); -->
+<!--   const prevButton = document.getElementById("prev-section-button"); -->
+<!--   const aboutMeButton = document.getElementById("about-me-button"); -->
+<!---->
+<!--   aboutMeButton.addEventListener("click", function showAboutMe() { -->
+<!--     aboutMeButton.classList.add("fade-out"); -->
+<!--     document.getElementById("heading-top").classList.add("fade-out"); -->
+<!--     document.getElementById("heading-bottom").classList.add("fade-out"); -->
+<!---->
+<!--     setTimeout(() => { -->
+<!--       index = 0; -->
+<!--       aboutMeText.textContent = texts[index]; -->
+<!--       aboutMeText.classList.remove("hidden"); -->
+<!--       aboutMeText.classList.add("fade-in"); -->
+<!---->
+<!--       aboutMeButton.classList.add("hidden"); -->
+<!--       document.getElementById("heading-top").classList.add("hidden"); -->
+<!--       document.getElementById("heading-bottom").classList.add("hidden"); -->
+<!---->
+<!--       nextButton.style.display = "block"; -->
+<!--       prevButton.style.display = "block"; -->
+<!---->
+<!--       updateButtonVisibility(); -->
+<!--     }, 800); -->
+<!--   }); -->
+<!---->
+<!--   function updateText(index) { -->
+<!--     aboutMeText.classList.add("fade-out"); -->
+<!---->
+<!--     setTimeout(() => { -->
+<!--       aboutMeText.textContent = texts[index]; -->
+<!--       aboutMeText.classList.remove("fade-out"); -->
+<!--       aboutMeText.classList.add("fade-in"); -->
+<!--     }, 800); -->
+<!---->
+<!--     updateButtonVisibility(); -->
+<!--   } -->
+<!---->
+<!--   function updateButtonVisibility() { -->
+<!--     prevButton.style.display = index > 0 ? "block" : "none"; -->
+<!--     nextButton.style.display = index < texts.length - 1 ? "block" : "none"; -->
+<!--   } -->
+<!---->
+<!--   nextButton.addEventListener("click", () => { -->
+<!--     if (index < texts.length - 1) { -->
+<!--       index++; -->
+<!--       updateText(index); -->
+<!--     } -->
+<!--   }); -->
+<!---->
+<!--   prevButton.addEventListener("click", () => { -->
+<!--     if (index > 0) { -->
+<!--       index--; -->
+<!--       updateText(index); -->
+<!--     } -->
+<!--   }); -->
+<!---->
+<!--   nextButton.style.display = "none"; -->
+<!--   prevButton.style.display = "none"; -->
+<!-- </script> -->
