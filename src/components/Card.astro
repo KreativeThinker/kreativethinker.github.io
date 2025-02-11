@@ -42,7 +42,7 @@ const { title, code, image, technologies } = Astro.props;
     <img src={image} class="hidden h-full w-full" />
     {
       technologies && technologies.length > 0 && (
-        <div class="mt-4 flex flex-wrap justify-center gap-2 p-4">
+        <div class="m-4 flex flex-wrap justify-center gap-2 p-4">
           {technologies.map((tech) => (
             <span class="rounded-lg bg-accent px-3 py-1 text-sm text-background">
               {tech}
