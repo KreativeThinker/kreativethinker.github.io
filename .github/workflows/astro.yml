@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: "." # default value when not using subfolders
+  BUILD_PATH: "."
 
 jobs:
   build:
@@ -25,47 +25,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
-            echo "manager=pnpm" >> $GITHUB_ENV
-            echo "command=install --frozen-lockfile" >> $GITHUB_ENV
-            echo "runner=pnpm exec" >> $GITHUB_ENV
-          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_ENV
-            echo "command=install --frozen-lockfile" >> $GITHUB_ENV
-            echo "runner=yarn" >> $GITHUB_ENV
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_ENV
-            echo "command=ci" >> $GITHUB_ENV
-            echo "runner=npx --no-install" >> $GITHUB_ENV
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ env.manager }}
-          cache-dependency-path: |
-            ${{ env.BUILD_PATH }}/pnpm-lock.yaml
-            ${{ env.BUILD_PATH }}/package-lock.json
-            ${{ env.BUILD_PATH }}/yarn.lock
+          cache: "pnpm"
 
-      - name: Setup pnpm (if needed)
-        if: env.manager == 'pnpm'
-        run: corepack enable && pnpm --version
+      - name: Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm --version
 
       - name: Install dependencies
-        run: ${{ env.manager }} ${{ env.command }}
+        run: pnpm install --frozen-lockfile
         working-directory: ${{ env.BUILD_PATH }}
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
       - name: Build with Astro
         run: |
-          ${{ env.runner }} astro build \
+          pnpm exec astro build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
