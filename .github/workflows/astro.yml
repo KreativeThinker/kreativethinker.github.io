@@ -32,10 +32,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-          pnpm --version
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -47,7 +44,7 @@ jobs:
 
       - name: Build with Astro
         run: |
-          pnpm exec astro build \
+          pnpm astro build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
