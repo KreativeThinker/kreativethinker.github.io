@@ -11,17 +11,26 @@ import asciiart from "../../neofetch-ascii.txt?raw";
   next_section="root"
   rotate
 >
-  <Heading color="text-accent font-mono" classList="mb-4">$:neofetch</Heading>
-  <div class="z-10 flex flex-col justify-evenly align-middle md:flex-row">
-    <div
-      class="m-4 flex aspect-square justify-center overflow-hidden rounded-full align-middle shadow-md shadow-accent"
+  <Heading color="text-accent" classList="hidden md:block font-mono"
+    >$:neofetch</Heading
+  >
+  <div
+    class="z-10 flex h-screen flex-col items-center justify-evenly p-8 align-middle md:h-auto md:w-[70%] md:flex-row"
+  >
+    <Heading color="text-accent" classList="font-mono md:hidden"
+      >$:neofetch</Heading
     >
-      <p class="whitespace-pre font-mono text-[2px] text-accent">
+    <div
+      class="flex aspect-square h-fit w-fit justify-center overflow-hidden rounded-full align-middle shadow-md shadow-accent"
+    >
+      <p
+        class="whitespace-pre font-mono text-[1.5px] text-accent sm:text-[2px] lg:text-[3px]"
+      >
         {asciiart}
       </p>
     </div>
     <div
-      class="m-4 rounded-xl bg-background p-4 font-mono text-sm text-text shadow-md shadow-accent"
+      class="rounded-xl bg-background p-4 font-mono text-sm text-text shadow-md shadow-accent md:text-lg"
     >
       <p><span class="font-bold text-accent">anumeyasehgal@earth</span></p>
       <p><span class="font-bold text-accent">-------------------</span></p>
@@ -56,10 +65,9 @@ import asciiart from "../../neofetch-ascii.txt?raw";
         Sports
       </p>
       <p>
-        <span class="font-bold text-accent">Communities:</span> Linux, FOSS, <a
-          href="github.com/stratoslinux"
-          class="underline">StratOS</a
-        >
+        <span class="font-bold text-accent">Communities:</span>
+        <a href="lugvitc.net" class="underline">LUGVITC</a>
+        <a href="https://stratos-linux.org/" class="underline">StratOS</a>
       </p>
     </div>
   </div>
