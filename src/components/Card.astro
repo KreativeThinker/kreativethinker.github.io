@@ -31,7 +31,7 @@ const { title, code, image, technologies } = Astro.props;
   >
   </div>
   <div
-    class="flex h-full w-full flex-col justify-center overflow-scroll rounded-[2em] bg-background align-middle"
+    class="flex h-full w-full flex-col justify-center overflow-scroll rounded-[2em] bg-background p-4 align-middle"
   >
     <Heading color="text-accent" classList="text-center text-3xl">
       {title}
@@ -53,6 +53,7 @@ const { title, code, image, technologies } = Astro.props;
     }
     <a href={code} class="text-center underline">
       <i class="fa fa-xl fa-github text-accent"></i>
+      <p>{code.slice("https://github.com/".length)}</p>
     </a>
   </div>
 </div>
