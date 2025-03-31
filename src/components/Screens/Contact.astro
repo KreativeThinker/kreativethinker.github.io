@@ -64,7 +64,7 @@ const socials = [
         action="https://formsubmit.co/anumeyasehgal@proton.me"
         method="POST"
         class="z-10 flex w-full max-w-md flex-col gap-4"
-        onSubmit="return validateForm()"
+        onsubmit="return validateForm()"
       >
         <input
           type="text"
@@ -100,9 +100,9 @@ const socials = [
 
   <script>
     function validateForm() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = (document.getElementById("name") as HTMLInputElement)?.value.trim() || "";
+      const email = (document.getElementById("email") as HTMLInputElement)?.value.trim() || "";
+      const message = (document.getElementById("message") as HTMLTextAreaElement)?.value.trim() || "";
 
       if (!name || !email || !message) {
         alert("Please fill out all fields.");
