@@ -52,8 +52,9 @@ const { title, code, image, technologies } = Astro.props;
       )
     }
     <a href={code} class="text-center underline">
-      <i class="fa fa-lg fa-github text-accent"></i>
-      <p>{code.slice("https://github.com/".length)}</p>
+      <i class="fa fa-github fa-lg text-accent"></i><p class="hidden md:inline">
+        {code.replace("https://github.com/", " ")}
+      </p>
     </a>
   </div>
 </div>
