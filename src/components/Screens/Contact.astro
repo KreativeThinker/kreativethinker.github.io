@@ -1,0 +1,121 @@
+---
+import Heading from "../../components/Heading.astro";
+import Screen from "../../components/Screen.astro";
+const socials = [
+  { name: "GitHub", url: "https://github.com/KreativeThinker", icon: "github" },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/anumeya-sehgal",
+    icon: "linkedin",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/anumeyasehgal",
+    icon: "twitter",
+  },
+  { name: "Email", url: "mailto:anumeyasehgal@proton.me", icon: "envelope" },
+];
+---
+
+<Screen
+  anchor="contact"
+  background="bg-background"
+  color="text-accent"
+  next_section="root"
+  rotate
+>
+  <Heading color="text-accent" classList="mb-4 uppercase">Contact Me</Heading>
+
+  <div
+    class="lg:3/4 flex w-full flex-col items-center justify-center gap-8 bg-background p-8 md:w-2/3 md:flex-row"
+  >
+    <!-- Left Pane: Socials -->
+    <div class="z-10 hidden w-1/2 flex-col items-center text-center md:flex">
+      <h2 class="mb-4 text-2xl font-bold text-accent">Let's Connect</h2>
+      <p class="mb-6 text-text">Reach out via socials or drop a message.</p>
+      <div class="flex w-full flex-col gap-4">
+        {
+          socials.map((social) => (
+            <a
+              href={social.url}
+              class="flex items-center gap-3 rounded-md border p-3 transition hover:bg-accent hover:text-background"
+              target="_blank"
+            >
+            <i class=`fa fa-${social.icon} fa-lg` />
+              {social.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Right Pane: Contact Form -->
+    <div class="flex w-full flex-col items-center md:w-1/2">
+      <h2 class="mb-4 text-2xl font-bold text-accent">Get in Touch</h2>
+      <p class="mb-6 text-center text-text">Let's collaborate or chat!</p>
+      <p class="mb-4 text-sm text-accent">
+        Or email me at <a
+          href="mailto:anumeyasehgal@proton.me"
+          class="underline">anumeyasehgal@proton.me</a
+        >
+      </p>
+      <form
+        id="contactForm"
+        action="https://formsubmit.co/anumeyasehgal@proton.me"
+        method="POST"
+        class="z-10 flex w-full max-w-md flex-col gap-4"
+        onSubmit="return validateForm()"
+      >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Your Name"
+          class="w-full rounded-md border bg-background p-3 text-text"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Your Email"
+          class="w-full rounded-md border bg-background p-3 text-text"
+        />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Your Message"
+          rows="4"
+          class="w-full rounded-md border bg-background p-3 text-text"
+        ></textarea>
+        <button
+          type="submit"
+          class="rounded-md bg-accent px-4 py-2 text-background transition hover:opacity-80"
+        >
+          Send Message
+        </button>
+        <input type="hidden" name="_captcha" value="false" />
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return false;
+      }
+
+      const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</Screen>
