@@ -1,77 +1,176 @@
 ---
 import Heading from "../../components/Heading.astro";
 import Screen from "../../components/Screen.astro";
-import Card from "../../components/Card.astro";
+import ProjectScreen from "../ProjectScreen.astro";
 ---
 
 <Screen
-  anchor="projects"
+  anchor="about"
   background="bg-background"
   color="text-text"
   next_section="about"
 >
-  <div class="flex h-full w-full flex-col justify-evenly align-middle">
-    <div>
-      <Heading
-        color="text-accent"
-        classList="font-bold uppercase text-center mb-4">Projects</Heading
-      >
-      <p class="text-center">
-        View more on my <i class="fa fa-md fa-github"></i>
+  <div class="mb-8 flex w-full flex-col items-center justify-center">
+    <Heading
+      color="text-accent"
+      classList="font-bold uppercase text-center mb-4"
+    >
+      About
+    </Heading>
+    <div
+      class="flex flex-col justify-evenly gap-8 p-8 md:w-3/4 md:flex-row lg:w-1/2"
+    >
+      <p class="">
+        I believe engineers exist to eliminate inefficiencies through
+        technology. Over the past year, I have made several tools and utilities
+        for myself and others to automate tasks and reduce redundant workload.
+        <br />
+        I am an active FOSS enthusiast, working with linux for the past year, I have
+        optimized everything to suit my workflow (check my
         <a
-          href="https://github.com/KreativeThinker"
+          href="https://github.com/KreativeThinker/dotfiles"
           style='cursor: url("/assets/cursor_inverted.svg"), auto;'
-          class="underline">Github</a
+          class="underline"
         >
+          dotfiles
+        </a>).
       </p>
     </div>
-    <div
-      class="flex snap-x snap-mandatory flex-row gap-8 overflow-x-scroll p-8 md:justify-evenly"
+  </div>
+  <div class="hidden w-full flex-col items-center justify-center md:flex">
+    <Heading
+      color="text-accent"
+      classList="font-bold uppercase text-center mb-4"
     >
-      <Card
-        title="LifeFence"
-        code="https://github.com/KreativeThinker/LifeFence"
-        image="/assets/projects/LifeFence.jpeg"
-        technologies={["React Native", "Python", "FastAPI", "Docker"]}
-      >
-        TODO app with advanced location based features and group management.
-      </Card>
-      <Card
-        title="Pwncore"
-        code="https://github.com/lugvitc/pwncore"
-        image=""
-        technologies={["Python", "FastAPI", "TortoiseORM", "Docker"]}
-      >
-        Scalable CTF backend written in FastAPI. Offers 2 modes and other
-        features including:
-        <ul class="text-center">
-          <li>Dynamic Flags</li>
-          <li>Dynamic Points</li>
-          <li>Jeopardy CTF</li>
-          <li>Attack-and-Defense CTF</li>
-          <li>Powerups to gamify</li>
-        </ul>
-      </Card>
-      <Card
-        title="learn-language"
-        code="https://github.com/KreativeThinker/learn-language"
-        image=""
-        technologies={["React", "Markdown"]}
-      >
-        A simple web interface made in React during exams to help learn german
-        using flash cards.
-      </Card>
-      <Card
-        title="Recruit Review"
-        code="https://github.com/KreativeThinker/RecruitReview"
-        image=""
-        technologies={["React", "Supabase", "PostgreSQL"]}
-      >
-        A very simple admin panel to view, manage and shortlist candidates. Made
-        to make recruitment process of <a href="lugvitc.net" class="underline"
-          >LUGVITC
-        </a> easier.
-      </Card>
+      Projects
+    </Heading>
+    <div
+      class="flex flex-col justify-evenly gap-8 p-8 md:w-3/4 md:flex-row lg:w-1/2"
+    >
+      <p class="text-accent">
+        Most of my projects are web development centered with my prefered stack
+        being FastAPI, PostgreSQL, React and Tailwind with Docker for
+        deployments. Beyond web development, I have indulged in app development,
+        computer vision, and DevOps, often branching into new fields through
+        minor projects.
+      </p>
     </div>
+    <p class="text-center">
+      Some Projects are below. View more on my <i class="fa fa-md fa-github"
+      ></i>
+      <a
+        href="https://github.com/KreativeThinker"
+        style='cursor: url("/assets/cursor_inverted.svg"), auto;'
+        class="underline">Github</a
+      >
+    </p>
   </div>
 </Screen>
+
+<ProjectScreen
+  title="PwnCore"
+  anchor="project-1"
+  github_link="https://github.com/lugvitc/pwncore"
+  next_section="project-2"
+  technologies={["Python", "FastAPI", "TortoiseORM", "Docker"]}
+  deployment=""
+>
+  <p class="leading-relaxed">
+    A Capture The Flag, Cyber-Security backend designed for heavy traffic and
+    cheating-free competitions. Tested for 10000+ concurrent users without lag
+    or overload.
+  </p>
+  <ul class="mt-2 pl-5">
+    <li class="list-disc">
+      Deploys CTF challenges using isolated docker containers
+    </li>
+    <li class="list-disc">
+      Supports dynamic points and dynamic flags, solving prevailing problems of
+      "flag sharing" amongst participants.
+    </li>
+    <li class="list-disc">
+      Optimized microservices for static CTF deployments
+    </li>
+    <li class="list-disc">
+      Supports standard Jeopardy-Style CTFs along with an innovative Free For
+      All, Cyber War mode
+    </li>
+  </ul>
+</ProjectScreen>
+
+<ProjectScreen
+  title="LifeFence"
+  anchor="project-2"
+  github_link="https://github.com/KreativeThinker/LifeFence"
+  next_section="project-3"
+  technologies={["React Native", "Python", "FastAPI", "Docker"]}
+  deployment=""
+>
+  <p class="leading-relaxed">
+    Geofencing-based mobile app with location-triggered task reminders,
+    automated actions, and real-time warnings. Comes as an all in one app
+    supporting finance tracking, automation and parental control
+  </p>
+  <ul class="mt-2 pl-5">
+    <li class="list-disc">Geofencing-based task automation</li>
+    <li class="list-disc">Finance tracking & group expense sharing</li>
+    <li class="list-disc">Multi-user collaboration & task management</li>
+  </ul>
+</ProjectScreen>
+
+<ProjectScreen
+  title="Learn Language"
+  anchor="project-3"
+  github_link="https://github.com/KreativeThinker/learn-language"
+  next_section="project-4"
+  technologies={["React", "TailwindCSS"]}
+  deployment="https://kreativethinker.github.io/learn-language"
+  laptop
+  mobile
+>
+  <p class="leading-relaxed">
+    A clean and simple UI for using flashcards to learn languages. Side project
+    I made the day before my German exam.
+  </p>
+  <ul class="mt-4 pl-5">
+    <li class="list-disc">File-based question upload</li>
+    <li class="list-disc">Live Auto-validation</li>
+    <li class="list-disc">
+      Reload, Upload, Reuse for as many languages and problem sets
+    </li>
+  </ul>
+</ProjectScreen>
+
+<ProjectScreen
+  title="Recruit Review"
+  anchor="project-4"
+  github_link="https://github.com/KreativeThinker/RecruitReview"
+  next_section="project-5"
+  technologies={["React", "Supabase", "PostgreSQL"]}
+  deployment="https://kreativethinker.github.io/RecruitReview/"
+  laptop
+  flip
+>
+  <p class="text-right leading-relaxed">
+    A simple web interface to go through the 400+ applications we received
+    during our club hiring. As an interviewer, I found the process of going
+    through the applicants responses in the excel sheet very cumbersome.
+  </p>
+</ProjectScreen>
+
+<ProjectScreen
+  title="DyNaGO"
+  anchor="project-5"
+  github_link="https://github.com/KreativeThinker/dynago"
+  next_section="about"
+  technologies={["OpenCV", "TensorFlow", "MediaPipe"]}
+  deployment=""
+>
+  <p class="leading-relaxed">
+    An AI-powered, extremely light-weight, natural gesture recognition based
+    Human Computer Interfacing (HCI) tool. Allows users to control their system
+    effortlessly with hand gestures detected via a standard webcam. This
+    eliminates the reliance on traditional input devices like keyboards and
+    mice, enhancing accessibility and user experience.
+  </p>
+</ProjectScreen>

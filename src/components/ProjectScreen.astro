@@ -1,22 +1,43 @@
 ---
 import Screen from "../components/Screen.astro";
 import Heading from "../components/Heading.astro";
+import Phone from "../components/Phone.astro";
+import Laptop from "../components/Laptop.astro";
+import ProjectAbout from "../components/ProjectAbout.astro";
 
 interface Props {
   title: string;
   anchor: string;
   github_link: string;
-  mockup: string;
+  deployment?: string;
   next_section: string;
-  demo?: string;
   invert?: boolean;
+  technologies: string[];
+  image?: string;
+  mobile?: boolean;
+  laptop?: boolean;
+  flip?: boolean;
 }
 
-const { title, anchor, github_link, mockup, next_section, demo, invert } =
-  Astro.props;
+const {
+  title,
+  anchor,
+  github_link,
+  deployment,
+  next_section,
+  invert,
+  technologies,
+  mobile = false,
+  laptop = false,
+  flip = false,
+} = Astro.props;
 
 const background_color = invert ? "bg-accent" : "bg-background";
 const color = invert ? "text-background" : "text-accent";
+
+const width =
+  !mobile && !laptop ? "lg:w-1/2" : mobile && !laptop ? "lg:w-1/2" : "lg:w-3/4";
+const flex_direction = flip ? "flex-row" : "flex-row-reverse";
 ---
 
 <Screen
@@ -26,6 +47,37 @@ const color = invert ? "text-background" : "text-accent";
   next_section={next_section}
   {invert}
 >
-  <Heading color={color} classList="font-bold mb-4 text-center">{title}</Heading
+  <Heading color={color} classList="font-bold mb-8 text-center">{title}</Heading
   >
+  <div class=`flex flex-col gap-8 px-8 md:${flex_direction} ${width}`>
+    <ProjectAbout
+      technologies={technologies}
+      github={github_link}
+      deployment={deployment}
+      flip={flip}
+    >
+      <slot />
+    </ProjectAbout>
+    {
+      mobile && laptop && (
+        <Phone className="hidden md:block lg:hidden">
+          {deployment && <iframe class="h-full w-full" src={deployment} />}
+        </Phone>
+      )
+    }
+    {
+      mobile && !laptop && (
+        <Phone className="hidden md:block">
+          {deployment && <iframe class="h-full w-full" src={deployment} />}
+        </Phone>
+      )
+    }
+    {
+      laptop && (
+        <Laptop className="hidden lg:block">
+          {deployment && <iframe class="h-full w-full" src={deployment} />}
+        </Laptop>
+      )
+    }
+  </div>
 </Screen>

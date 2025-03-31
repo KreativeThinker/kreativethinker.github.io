@@ -1,0 +1,84 @@
+---
+interface Props {
+  technologies: string[];
+  github: string;
+  deployment?: string;
+  flip?: boolean;
+}
+
+const { technologies, github, deployment, flip } = Astro.props;
+const text_align = flip ? "text-right" : "text-left";
+const justify = flip ? "justify-end" : "";
+---
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    });
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  });
+</script>
+
+<section>
+  <h2 class=`accent fade-in text-2xl font-bold ${text_align}`>About</h2>
+  <p class="fade-in mt-2"><slot /></p>
+
+  <div class="fade-in mt-4">
+    <h3 class=`font-semibold ${text_align}`>Technologies Used:</h3>
+    <div class=`mt-2 flex flex-wrap gap-2 ${justify}`>
+      {
+        technologies.map((tech) => (
+          <span class="rounded-md bg-accent px-3 py-1 text-background">
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="fade-in mt-4">
+    <h3 class=`font-semibold ${text_align}`>Links:</h3>
+    <div class=`flex mt-2 ${justify}`>
+      <a
+        href={github}
+        target="_blank"
+        class="rounded-md bg-background px-2 py-2 text-accent shadow-accent hover:underline"
+        >GitHub Repo</a
+      >
+      {
+        deployment && (
+          <>
+            <span class="mx-2 mt-2">|</span>
+            <a
+              href={deployment}
+              target="_blank"
+              class="rounded-md bg-background px-3 py-2 text-accent shadow-accent hover:underline"
+            >
+              Demo
+            </a>
+          </>
+        )
+      }
+    </div>
+  </div>
+</section>

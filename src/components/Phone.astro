@@ -1,0 +1,36 @@
+---
+interface Props {
+  className?: string;
+  hidden?: boolean;
+}
+
+const { className, hidden } = Astro.props;
+---
+
+<div class=`${hidden} ${className}`>
+  <div
+    class="relative mx-auto aspect-[9/16] h-[36em] min-w-[8em] snap-center rounded-[2.5em] border-[0.875em] border-accent bg-accent shadow-xl shadow-accent dark:border-accent"
+  >
+    <div
+      class="absolute left-1/2 top-0 z-10 h-[1.125em] w-[9.25em] -translate-x-1/2 rounded-b-[1em] bg-accent"
+    >
+    </div>
+    <div
+      class="absolute -start-[1.0625em] top-[7.75em] h-[2.875em] w-[0.1875em] rounded-s-lg bg-accent"
+    >
+    </div>
+    <div
+      class="absolute -start-[1.0625em] top-[11.125em] h-[2.875em] w-[0.1875em] rounded-s-lg bg-accent"
+    >
+    </div>
+    <div
+      class="absolute -end-[1.0625em] top-[8.875em] h-[4em] w-[0.1875em] rounded-e-lg bg-accent"
+    >
+    </div>
+    <div
+      class="flex h-full w-full flex-col justify-center overflow-scroll rounded-[2em] bg-background align-middle"
+    >
+      <slot />
+    </div>
+  </div>
+</div>
