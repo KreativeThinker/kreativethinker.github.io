@@ -38,6 +38,7 @@ const color = invert ? "text-background" : "text-accent";
 const width =
   !mobile && !laptop ? "lg:w-1/2" : mobile && !laptop ? "lg:w-1/2" : "lg:w-3/4";
 const flex_direction = flip ? "flex-row" : "flex-row-reverse";
+console.log(width, flip, flex_direction);
 ---
 
 <Screen
@@ -49,7 +50,9 @@ const flex_direction = flip ? "flex-row" : "flex-row-reverse";
 >
   <Heading color={color} classList="font-bold mb-8 text-center">{title}</Heading
   >
-  <div class=`flex flex-col gap-8 px-8 md:${flex_direction} ${width}`>
+  <div
+    class={`flex flex-col gap-8 px-8 md:flex-row ${flip ? "" : "md:flex-row-reverse"} ${width}`}
+  >
     <ProjectAbout
       technologies={technologies}
       github={github_link}
