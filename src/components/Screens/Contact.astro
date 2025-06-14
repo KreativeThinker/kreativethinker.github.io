@@ -2,18 +2,18 @@
 import Heading from "../../components/Heading.astro";
 import Screen from "../../components/Screen.astro";
 const socials = [
-  { name: "GitHub", url: "https://github.com/KreativeThinker", icon: "github" },
+  { name: "GitHub", url: "https://github.com/KreativeThinker", icon: "fa-brands fa-github" },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/anumeya-sehgal",
-    icon: "linkedin",
+    icon: "fa-brands fa-linkedin",
   },
   {
     name: "Twitter",
     url: "https://twitter.com/anumeyasehgal",
-    icon: "twitter",
+    icon: "fa-brands fa-twitter",
   },
-  { name: "Email", url: "mailto:anumeyasehgal@proton.me", icon: "envelope" },
+  { name: "Email", url: "mailto:anumeyasehgal@proton.me", icon: "fa-regular fa-envelope" },
 ];
 ---
 
@@ -41,7 +41,7 @@ const socials = [
               class="flex items-center gap-3 rounded-md border p-3 transition hover:bg-accent hover:text-background"
               target="_blank"
             >
-            <i class=`fa fa-brands fa-${social.icon} fa-lg` />
+            <i class=`${social.icon} fa-lg` />
               {social.name}
             </a>
           ))
