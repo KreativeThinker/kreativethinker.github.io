@@ -12,7 +12,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Portfolio Website" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/AS.png" />
+    <link rel="icon" type="image/svg+xml" href="/AnumeyaSehgal Logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <link
       rel="stylesheet"
@@ -34,15 +34,15 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="h-screen overflow-y-scroll overflow-x-hidden md:snap-y">
+    <div class="h-screen overflow-x-hidden overflow-y-scroll md:snap-y">
       <slot />
     </div>
   </body>
 </html>
 
 <style is:global>
-* {
-  font-size: 16px;
+  * {
+    font-size: 16px;
   }
   a {
     cursor: url("/assets/cursor_inverted.svg"), auto;
