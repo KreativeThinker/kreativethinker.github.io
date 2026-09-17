@@ -1,34 +1,8 @@
 ---
-import Heading from "../../components/Heading.astro";
-import Screen from "../../components/Screen.astro";
-import SocialsLinks from "../SocialsLinks.astro";
+import Heading from "../../components/base/Heading.astro";
+import Screen from "../../components/compound/Screen.astro";
+import SocialsLinks from "../compound/SocialsLinks.astro";
 ---
-
-<style is:global>
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  .fade-in {
-    animation: fadeIn 2s ease forwards;
-  }
-  .fade-out {
-    animation: fadeOut 2s ease forwards;
-  }
-</style>
 
 <Screen
   anchor="root"

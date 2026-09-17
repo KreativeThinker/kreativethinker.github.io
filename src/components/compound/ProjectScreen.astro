@@ -1,14 +1,14 @@
 ---
-import Screen from "../components/Screen.astro";
-import Heading from "../components/Heading.astro";
-import Phone from "../components/Phone.astro";
-import Laptop from "../components/Laptop.astro";
-import ProjectAbout from "../components/ProjectAbout.astro";
+import Screen from "./Screen.astro";
+import Heading from "../base/Heading.astro";
+import Phone from "../base/Phone.astro";
+import Laptop from "../base/Laptop.astro";
+import ProjectAbout from "../base/ProjectAbout.astro";
 
 interface Props {
   title: string;
   anchor: string;
-  github_link: string;
+  github_link?: string;
   deployment?: string;
   next_section: string;
   invert?: boolean;
@@ -37,8 +37,6 @@ const color = invert ? "text-background" : "text-accent";
 
 const width =
   !mobile && !laptop ? "lg:w-1/2" : mobile && !laptop ? "lg:w-1/2" : "lg:w-3/4";
-const flex_direction = flip ? "flex-row" : "flex-row-reverse";
-console.log(width, flip, flex_direction);
 ---
 
 <Screen

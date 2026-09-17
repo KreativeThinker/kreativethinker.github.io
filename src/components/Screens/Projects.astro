@@ -1,43 +1,16 @@
 ---
-import Heading from "../../components/Heading.astro";
-import Screen from "../../components/Screen.astro";
-import ProjectScreen from "../ProjectScreen.astro";
+import Heading from "../../components/base/Heading.astro";
+import Screen from "../../components/compound/Screen.astro";
+import ProjectScreen from "../compound/ProjectScreen.astro";
 ---
 
 <Screen
-  anchor="about"
+  anchor="projects"
   background="bg-background"
   color="text-text"
   next_section="project-1"
 >
-  <div class="mb-8 flex w-full flex-col items-center justify-center">
-    <Heading
-      color="text-accent"
-      classList="font-bold uppercase text-center mb-4"
-    >
-      About
-    </Heading>
-    <div
-      class="flex flex-col justify-evenly gap-8 p-8 md:w-3/4 md:flex-row lg:w-1/2"
-    >
-      <p class="">
-        I believe engineers exist to eliminate inefficiencies through
-        technology. Over the past year, I have made several tools and utilities
-        for myself and others to automate tasks and reduce redundant workload.
-        <br />
-        I am an active FOSS enthusiast, working with linux for the past year, I have
-        optimized everything to suit my workflow (check my
-        <a
-          href="https://github.com/KreativeThinker/dotfiles"
-          style='cursor: url("/assets/cursor_inverted.svg"), auto;'
-          class="underline"
-        >
-          dotfiles
-        </a>).
-      </p>
-    </div>
-  </div>
-  <div class="hidden w-full flex-col items-center justify-center md:flex">
+  <div class="flex w-full flex-col items-center justify-center">
     <Heading
       color="text-accent"
       classList="font-bold uppercase text-center mb-4"
@@ -58,20 +31,42 @@ import ProjectScreen from "../ProjectScreen.astro";
     <p class="text-center">
       Some Projects are below. View more on my <i class="fa-brands fa-github"
       ></i>
-      <a
-        href="https://github.com/KreativeThinker"
-        style='cursor: url("/assets/cursor_inverted.svg"), auto;'
-        class="underline">Github</a
-      >
+      <a href="https://github.com/KreativeThinker" class="underline">Github</a>
     </p>
   </div>
 </Screen>
 
 <ProjectScreen
-  title="PwnCore"
+  title="Zeta"
   anchor="project-1"
-  github_link="https://github.com/lugvitc/pwncore"
   next_section="project-2"
+  technologies={["Go", "WireGuard", "gRPC", "Kotlin", "Docker"]}
+  github_link="https://github.com/KreativeThinker/zeta"
+  deployment=""
+>
+  <p class="leading-relaxed">
+    An exploratory project into computer networking. It is a self-hostable mesh
+    VPN built on WireGuard: enroll any Linux device or Android phone with a
+    preauth key and it joins a private mesh network, with a coordinator that
+    stays out of the data path once peers know each other's keys.
+  </p>
+  <ul class="mt-2 pl-5">
+    <li class="list-disc">
+      Coordinator handles enrollment, key distribution, and network map updates
+      over gRPC
+    </li>
+    <li class="list-disc">
+      Direct peer-to-peer WireGuard tunnels for data — no relay
+    </li>
+    <li class="list-disc">Linux agent plus a native Android client</li>
+  </ul>
+</ProjectScreen>
+
+<ProjectScreen
+  title="PwnCore"
+  anchor="project-2"
+  github_link="https://github.com/lugvitc/pwncore"
+  next_section="project-3"
   technologies={["Python", "FastAPI", "TortoiseORM", "Docker"]}
   deployment=""
 >
@@ -99,68 +94,8 @@ import ProjectScreen from "../ProjectScreen.astro";
 </ProjectScreen>
 
 <ProjectScreen
-  title="LifeFence"
-  anchor="project-2"
-  github_link="https://github.com/KreativeThinker/LifeFence"
-  next_section="project-3"
-  technologies={["React Native", "Python", "FastAPI", "Docker"]}
-  deployment=""
->
-  <p class="leading-relaxed">
-    Geofencing-based mobile app with location-triggered task reminders,
-    automated actions, and real-time warnings. Comes as an all in one app
-    supporting finance tracking, automation and parental control
-  </p>
-  <ul class="mt-2 pl-5">
-    <li class="list-disc">Geofencing-based task automation</li>
-    <li class="list-disc">Finance tracking & group expense sharing</li>
-    <li class="list-disc">Multi-user collaboration & task management</li>
-  </ul>
-</ProjectScreen>
-
-<ProjectScreen
-  title="Learn Language"
-  anchor="project-3"
-  github_link="https://github.com/KreativeThinker/learn-language"
-  next_section="project-4"
-  technologies={["React", "TailwindCSS"]}
-  deployment="https://kreativethinker.github.io/learn-language"
-  laptop
-  mobile
->
-  <p class="leading-relaxed">
-    A clean and simple UI for using flashcards to learn languages. Side project
-    I made the day before my German exam.
-  </p>
-  <ul class="mt-4 pl-5">
-    <li class="list-disc">File-based question upload</li>
-    <li class="list-disc">Live Auto-validation</li>
-    <li class="list-disc">
-      Reload, Upload, Reuse for as many languages and problem sets
-    </li>
-  </ul>
-</ProjectScreen>
-
-<ProjectScreen
-  title="Recruit Review"
-  anchor="project-4"
-  github_link="https://github.com/KreativeThinker/RecruitReview"
-  next_section="project-5"
-  technologies={["React", "Supabase", "PostgreSQL"]}
-  deployment="https://kreativethinker.github.io/RecruitReview/"
-  laptop
-  flip
->
-  <p class="text-right leading-relaxed">
-    A simple web interface to go through the 400+ applications we received
-    during our club hiring. As an interviewer, I found the process of going
-    through the applicants' responses in the excel sheet very cumbersome.
-  </p>
-</ProjectScreen>
-
-<ProjectScreen
   title="DyNaGO"
-  anchor="project-5"
+  anchor="project-3"
   github_link="https://github.com/KreativeThinker/dynago"
   next_section="contact"
   technologies={["OpenCV", "TensorFlow", "MediaPipe"]}

@@ -10,6 +10,7 @@ const { section, classList, rotate, invert } = Astro.props;
 
 const background = invert ? "bg-accent" : "bg-background";
 const color = invert ? "text-background" : "text-accent";
+const cursorClass = invert ? "cursor-brand" : "cursor-brand-inverted";
 ---
 
 <style>
@@ -31,15 +32,13 @@ const color = invert ? "text-background" : "text-accent";
 </style>
 
 <button
-  class=`z-20 absolute h-4 bottom-0 transition-all opacity-0 translate-y-4 absolute animate-fade-in w-full ${background}`
+  class=`z-20 absolute h-4 bottom-4 transition-all opacity-0 translate-y-4 absolute animate-fade-in w-full ${background} ${cursorClass}`
   onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
-  style=`cursor: url('${invert?"/assets/cursor.svg":"/assets/cursor_inverted.svg"}'), auto;`
 >
 </button>
 <button
-  class=`h-12 z-20 w-12 rounded-full transition-all opacity-0 translate-y-4 absolute -bottom-2 animate-fade-in ${background} ${color} ${classList}`
+  class=`h-12 w-12 z-20 rounded-full transition-all opacity-0 absolute left-1/2 -translate-x-1/2 bottom-0 animate-fade-in ${background} ${color} ${cursorClass} ${classList}`
   onclick=`document.getElementById('${section}').scrollIntoView({ behavior: 'smooth' });`
-  style=`cursor: url('${invert?"/assets/cursor.svg":"/assets/cursor_inverted.svg"}'), auto;`
 >
   <i class=`fa-solid fa-lg fa-angles-${rotate?"up":"down"}`></i>
 </button>

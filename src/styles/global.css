@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat";
+  --font-mono: "JetBrains Mono";
+  --font-handwritten: "Caveat";
+
+  --color-*: initial;
+  --color-background: #e2e2e2;
+  --color-accent: #2e2e2e;
+  --color-text: #555;
+  --color-polaroid: #f4ecd8;
+}
+
+@layer base {
+  * {
+    font-size: 16px;
+  }
+
+  a {
+    cursor: url("/assets/cursor_inverted.svg"), auto;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 2s ease forwards;
+  }
+
+  .fade-out {
+    animation: fadeOut 2s ease forwards;
+  }
+}
+
+/* Custom cursor utilities, e.g. class="cursor-brand" / class="cursor-brand-inverted" */
+@utility cursor-brand {
+  cursor: url("/assets/cursor.svg"), auto;
+}
+
+@utility cursor-brand-inverted {
+  cursor: url("/assets/cursor_inverted.svg"), auto;
+}

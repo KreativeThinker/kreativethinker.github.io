@@ -2,23 +2,31 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:blog-image": "node scripts/gen-blog-images.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.1.2",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.9",
+    "sharp": "^0.35.4",
+    "typescript": "5.9.3"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.10",
-    "tailwindcss": "^3.4.1"
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.3"
   }
 }

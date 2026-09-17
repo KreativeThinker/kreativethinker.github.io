@@ -1,14 +1,19 @@
 ---
-import Heading from "../../components/Heading.astro";
-import Screen from "../../components/Screen.astro";
+import Heading from "../../components/base/Heading.astro";
+import Screen from "../../components/compound/Screen.astro";
+import Button from "../../components/base/Button.astro";
 ---
 
 <Screen
   anchor="blog"
   background="bg-background"
   color="text-accent"
-  next_section="about"
-  rotate
+  next_section="projects"
 >
   <Heading color="text-accent" classList="mb-4 uppercase">Blog</Heading>
+  <p class="max-w-md px-8 text-center">
+    Writeups on what I'm building, half-baked ideas, and the occasional
+    non-technical tangent.
+  </p>
+  <Button href="/blog" classList="mt-6">Read the blog</Button>
 </Screen>

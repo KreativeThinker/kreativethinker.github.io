@@ -1,74 +1,54 @@
 ---
-import Heading from "../../components/Heading.astro";
-import Screen from "../../components/Screen.astro";
-import asciiart from "../../neofetch-ascii.txt?raw";
+import Heading from "../../components/base/Heading.astro";
+import Screen from "../../components/compound/Screen.astro";
 ---
 
 <Screen
   anchor="about"
   background="bg-background"
   color="text-accent"
-  next_section="root"
-  rotate
+  next_section="projects"
+  hideWave
 >
-  <Heading color="text-accent" classList="hidden md:block font-mono"
-    >$:neofetch</Heading
-  >
   <div
-    class="z-10 flex h-screen flex-col items-center justify-evenly p-8 align-middle md:h-auto md:w-[70%] md:flex-row"
+    class="flex h-full w-full flex-col md:grid md:grid-cols-[60%_40%] md:px-52"
   >
-    <Heading color="text-accent" classList="font-mono md:hidden"
-      >$:neofetch</Heading
-    >
     <div
-      class="flex aspect-square h-fit w-fit justify-center overflow-hidden rounded-full align-middle shadow-md shadow-accent"
+      class="relative z-10 flex h-full flex-1 flex-col px-12 py-8 md:px-24 md:py-16"
     >
-      <p
-        class="whitespace-pre font-mono text-[1.5px] text-accent sm:text-[2px] lg:text-[3px]"
-      >
-        {asciiart}
-      </p>
+      <div class="flex flex-1 flex-col justify-center gap-y-6">
+        <Heading color="text-accent" classList="uppercase mb-6">
+          About
+        </Heading>
+        <p class="max-w-xl leading-relaxed">
+          Hey there 👋🏼
+          <br /><br />
+          In case you missed the very large introduction above, I'm Anumeya, a compulsive
+          software engineer happy to build and break.
+          <br /><br />
+          I have been working with tech for the better part of the past decade. Starting
+          out with electronics and hardware, I have since indulged in almost all things
+          tech.
+          <br /><br />
+          The starting point of my software journey was the same reason I am now a
+          Linux user, a raspberry pi 3b+ back before Covid. This experience has single-handedly
+          shaped my philosophy and approach to tech: Software shouldn't assume the
+          hardware.
+          <br /><br />
+          Currently working at <a href="https://heizen.work">Heizen</a> as an SDE.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/blog/philosophy" class="underline">Philosophy</a>
+          <a href="#" class="underline">Tech I use</a>
+          <a href="#" class="underline">What I support</a>
+        </div>
+      </div>
     </div>
-    <div
-      class="rounded-xl bg-background p-4 font-mono text-sm text-text shadow-md shadow-accent md:text-lg"
-    >
-      <p><span class="font-bold text-accent">anumeyasehgal@earth</span></p>
-      <p><span class="font-bold text-accent">-------------------</span></p>
-      <p>
-        <span class="font-bold text-accent">OS:</span> Eat, Code, Sleep, Repeat
-      </p>
-      <p>
-        <span class="font-bold text-accent">Host:</span> Human, Occasionally Debugged
-      </p>
-      <p>
-        <span class="font-bold text-accent">Kernel:</span> Adaptive, Always Learning
-      </p>
-      <p><span class="font-bold text-accent">Uptime:</span> 19 years</p>
-      <p>
-        <span class="font-bold text-accent">Packages:</span> Everything I could find
-      </p>
-      <p>
-        <span class="font-bold text-accent">Theme:</span> Jack of all trades
-      </p>
-      <p>
-        <span class="font-bold text-accent">Terminal:</span> WarpTerminal (I'm rusty)
-      </p>
-      <p><span class="font-bold text-accent">CPU:</span> Always Overclocked</p>
-      <p>
-        <span class="font-bold text-accent">GPU:</span> Calculating Best Solutions
-      </p>
-      <p>
-        <span class="font-bold text-accent">Memory:</span> 10M+ Facts and Topics
-      </p>
-      <p>
-        <span class="font-bold text-accent">Social:</span> Music (Guitar/Drums),
-        Sports
-      </p>
-      <p>
-        <span class="font-bold text-accent">Communities:</span>
-        <a href="lugvitc.net" class="underline">LUGVITC</a>
-        <a href="https://stratos-linux.org/" class="underline">StratOS</a>
-      </p>
-    </div>
+
+    <img
+      src="/dot-matrix.svg"
+      alt=""
+      class="relative hidden h-full w-full object-cover md:block"
+    />
   </div>
 </Screen>

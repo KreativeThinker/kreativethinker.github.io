@@ -1,6 +1,7 @@
 ---
-import Heading from "../../components/Heading.astro";
-import Screen from "../../components/Screen.astro";
+import Heading from "../../components/base/Heading.astro";
+import Screen from "../../components/compound/Screen.astro";
+import Button from "../../components/base/Button.astro";
 const socials = [
   { name: "GitHub", url: "https://github.com/KreativeThinker", icon: "fa-brands fa-github" },
   {
@@ -87,12 +88,7 @@ const socials = [
           rows="4"
           class="w-full rounded-md border bg-background p-3 text-text"
         ></textarea>
-        <button
-          type="submit"
-          class="rounded-md bg-accent px-4 py-2 text-background transition hover:opacity-80"
-        >
-          Send Message
-        </button>
+        <Button type="submit">Send Message</Button>
         <input type="hidden" name="_captcha" value="false" />
       </form>
     </div>

@@ -8,6 +8,6 @@ interface Props {
 const { color, classList, id } = Astro.props;
 ---
 
-<p id={id} class=`text-5xl font-semibold ${color} ${classList}`>
+<h1 id={id} class=`text-5xl font-semibold ${color} ${classList}`>
   <slot />
-</p>
+</h1>

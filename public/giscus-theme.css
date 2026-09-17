@@ -1,0 +1,89 @@
+:root {
+  /* Base colors from your theme */
+  --accent: #2e2e8e;
+  --accent-dark: #2e2e5e;
+  --black: #2e2e2e;
+  --gray: #555555;
+  --gray-light: #777777;
+  --gray-dark: #333333;
+  --white: #e2e2e2;
+
+  /* Giscus-specific overrides */
+  --color-prettylights-syntax-comment: var(--gray-light);
+  --color-prettylights-syntax-constant: var(--accent-dark);
+  --color-prettylights-syntax-entity: var(--accent);
+  --color-prettylights-syntax-storage-modifier-import: var(--gray-dark);
+  --color-prettylights-syntax-entity-tag: var(--accent);
+  --color-prettylights-syntax-keyword: var(--accent-dark);
+  --color-prettylights-syntax-string: var(--black);
+  --color-prettylights-syntax-variable: var(--accent-dark);
+  --color-prettylights-syntax-markup-heading: var(--accent);
+  --color-prettylights-syntax-markup-bold: var(--black);
+  --color-prettylights-syntax-markup-italic: var(--gray);
+  --color-prettylights-syntax-markup-inserted-text: var(--accent);
+  --color-prettylights-syntax-markup-deleted-text: var(--gray-dark);
+
+  --color-btn-text: var(--white);
+  --color-btn-bg: var(--accent);
+  --color-btn-border: var(--accent-dark);
+  --color-btn-hover-bg: var(--accent-dark);
+  --color-btn-hover-border: var(--gray-dark);
+  --color-btn-active-bg: var(--gray-dark);
+  --color-btn-selected-bg: var(--gray);
+  --color-btn-primary-text: var(--white);
+  --color-btn-primary-bg: var(--accent);
+  --color-btn-primary-border: var(--accent-dark);
+  --color-btn-primary-hover-bg: var(--accent-dark);
+  --color-btn-primary-disabled-text: var(--gray-light);
+  --color-btn-primary-disabled-bg: var(--gray);
+  --color-btn-primary-disabled-border: var(--gray-light);
+
+  --color-fg-default: var(--black);
+  --color-fg-muted: var(--gray);
+  --color-fg-subtle: var(--gray-light);
+  --color-canvas-default: var(--white);
+  --color-canvas-subtle: #f5f5f5;
+  --color-canvas-overlay: var(--white);
+  --color-canvas-inset: var(--white);
+  --color-border-default: var(--gray);
+  --color-border-muted: var(--gray-light);
+
+  --color-accent-fg: var(--accent);
+  --color-accent-emphasis: var(--accent-dark);
+  --color-accent-muted: rgba(46, 46, 142, 0.4);
+  --color-accent-subtle: rgba(46, 46, 142, 0.15);
+
+  --color-success-fg: #22863a;
+  --color-attention-fg: #b08800;
+  --color-danger-fg: #cb2431;
+
+  /* Giscus layout fixes */
+  .gsc-reactions-count {
+    display: none;
+  }
+
+  .gsc-timeline {
+    flex-direction: column-reverse;
+  }
+
+  .gsc-header {
+    padding-bottom: 1rem;
+  }
+
+  .gsc-comments > .gsc-header {
+    order: 1;
+  }
+
+  .gsc-comments > .gsc-comment-box {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+
+  .gsc-comments > .gsc-timeline {
+    order: 3;
+  }
+
+  main .gsc-loading-image {
+    background-image: none;
+  }
+}

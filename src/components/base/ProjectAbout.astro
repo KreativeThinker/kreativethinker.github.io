@@ -1,7 +1,7 @@
 ---
 interface Props {
   technologies: string[];
-  github: string;
+  github?: string;
   deployment?: string;
   flip?: boolean;
 }
@@ -58,13 +58,22 @@ const justify = flip ? "justify-end" : "";
 
   <div class="fade-in mt-4">
     <h3 class=`font-semibold ${text_align}`>Links:</h3>
-    <div class=`flex mt-2 ${justify}`>
-      <a
-        href={github}
-        target="_blank"
-        class="rounded-md bg-background px-2 py-2 text-accent shadow-accent hover:underline"
-        >GitHub Repo</a
-      >
+    <div class=`flex mt-2 items-center ${justify}`>
+      {
+        github ? (
+          <a
+            href={github}
+            target="_blank"
+            class="rounded-md bg-background px-2 py-2 text-accent shadow-accent hover:underline"
+          >
+            GitHub Repo
+          </a>
+        ) : (
+          <span class="rounded-md bg-background px-2 py-2 text-accent shadow-accent">
+            Private repository
+          </span>
+        )
+      }
       {
         deployment && (
           <>

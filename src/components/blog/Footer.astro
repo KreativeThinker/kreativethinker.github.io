@@ -1,0 +1,46 @@
+---
+const today = new Date()
+---
+
+<footer>
+  &copy; {today.getFullYear()} Anumeya Sehgal. All rights reserved.
+    <div class="social-links">
+      <a href="https://linkedin.com/in/anumeya-sehgal" target="_blank">
+        <span class="sr-only">Follow Me on Linkedin</span>
+        <i class="text-2xl fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/AnumeyaSehgal" target="_blank">
+        <span class="sr-only">Follow Me on Twitter</span>
+        <i class="text-2xl fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://github.com/KreativeThinker" target="_blank">
+        <span class="sr-only">Follow me on Github</span>
+        <i class="text-2xl fa-brands fa-github"></i>
+      </a>
+      <a href="/">
+        <span class="sr-only">Visit my portfolio</span>
+        <i class="text-2xl fa fa-home"></i>
+      </a>
+    </div>
+</footer>
+<style>
+  footer {
+    padding: 2em 1em 6em 1em;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+    color: rgb(var(--gray));
+    text-align: center;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+  }
+  .social-links a {
+    text-decoration: none;
+    color: rgb(var(--gray));
+  }
+  .social-links a:hover {
+    color: rgb(var(--gray-dark));
+  }
+</style>

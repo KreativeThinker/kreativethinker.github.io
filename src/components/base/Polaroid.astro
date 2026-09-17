@@ -1,0 +1,60 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  label?: string;
+  description?: string;
+  href?: string;
+  size?: "md" | "lg";
+  classList?: string;
+  style?: string;
+}
+
+const {
+  src,
+  alt = "",
+  label,
+  description,
+  href,
+  size = "md",
+  classList,
+  style,
+} = Astro.props;
+
+const width = size === "lg" ? "w-[26rem]" : "w-80";
+const Wrapper = href ? "a" : "figure";
+---
+
+<Wrapper
+  href={href}
+  class={`polaroid-card ${width} select-none bg-polaroid p-4 pb-6 shadow-lg shadow-accent/30 ${classList ?? ""}`}
+  style={style}
+>
+  <div class="aspect-[4/3] w-full overflow-hidden bg-accent/10">
+    <img
+      src={src}
+      alt={alt}
+      class="polaroid-photo h-full w-full object-cover"
+      draggable="false"
+    />
+  </div>
+  {
+    label && (
+      <figcaption class="mt-3 text-center font-handwritten text-2xl text-accent">
+        {label}
+      </figcaption>
+    )
+  }
+  {
+    description && (
+      <p class="mt-1 text-center text-sm text-text">{description}</p>
+    )
+  }
+</Wrapper>
+
+<style>
+  /* Automatic vintage/polaroid color treatment on every photo */
+  .polaroid-photo {
+    filter: sepia(0.25) saturate(1.15) contrast(1.05) brightness(1.05);
+  }
+</style>
